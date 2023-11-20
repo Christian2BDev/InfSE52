@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3nlurq16571k"]
 
-[ext_resource type="Script" path="res://Linkerbatje.gd" id="1_543nc"]
+[ext_resource type="Script" path="res://scripts/Linkerbatje.gd" id="1_543nc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cweaq"]
 size = Vector2(56, 289)
