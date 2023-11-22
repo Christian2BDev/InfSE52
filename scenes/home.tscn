@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://0m0jxbv105ar"]
 
-[ext_resource type="Texture2D" uid="uid://dbv8cj3025one" path="res://img/Godot_bg.png" id="1_oq77h"]
+[ext_resource type="Texture2D" uid="uid://h8qxw1xlltra" path="res://img/achtergrond ui.jpg" id="1_iu0b1"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_04222"]
 [ext_resource type="Script" path="res://scripts/Play.gd" id="3_u2dow"]
 [ext_resource type="Script" path="res://scripts/Settings.gd" id="4_2ts77"]
@@ -8,14 +8,14 @@
 
 [node name="Node" type="Node"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 3
+[node name="achtergrond" type="TextureRect" parent="."]
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_oq77h")
+texture = ExtResource("1_iu0b1")
 stretch_mode = 3
 
 [node name="welcome" type="Label" parent="."]
