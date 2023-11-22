@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://0m0jxbv105ar"]
+[gd_scene load_steps=8 format=3 uid="uid://0m0jxbv105ar"]
 
 [ext_resource type="Texture2D" uid="uid://h8qxw1xlltra" path="res://img/achtergrond ui.jpg" id="1_iu0b1"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_04222"]
@@ -6,9 +6,20 @@
 [ext_resource type="Script" path="res://scripts/Settings.gd" id="4_2ts77"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="5_sorbj"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ep76g"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0.909804, 0.894118, 0.572549, 1)
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lh66j"]
+line_spacing = 1.0
+font_size = 24
+
 [node name="Node" type="Node"]
 
-[node name="achtergrond" type="TextureRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +27,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_iu0b1")
-stretch_mode = 3
+expand_mode = 1
 
 [node name="welcome" type="Label" parent="."]
 anchors_preset = 8
@@ -31,11 +42,12 @@ offset_bottom = -278.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Welcome"
+text = "PongPing"
+label_settings = SubResource("LabelSettings_ep76g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="credits" type="Label" parent="."]
+[node name="10" type="Label" parent="."]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -44,6 +56,7 @@ offset_right = 252.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 text = "ft. Christian and Hugo"
+label_settings = SubResource("LabelSettings_lh66j")
 horizontal_alignment = 1
 vertical_alignment = 1
 
