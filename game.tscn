@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://cymvuda67tw53"]
+
+[ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://pongie.glb" id="1_5j0q0"]
+
+[sub_resource type="Environment" id="Environment_ot4n1"]
+background_mode = 1
+background_color = Color(0, 0.447059, 0.556863, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syhy3"]
+size = Vector3(19.9377, 1, 40.4956)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fsgc2"]
+bounce = 7.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pcrel"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mfpls"]
+albedo_color = Color(0.94902, 0, 0.239216, 1)
+emission = Color(0.929412, 0.654902, 0, 1)
+emission_energy_multiplier = 72.86
+
+[sub_resource type="SphereMesh" id="SphereMesh_0m3n3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lyehy"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv673"]
+albedo_color = Color(0, 0.866667, 0.588235, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7rggq"]
+material = SubResource("StandardMaterial3D_vv673")
+size = Vector2(100, 100)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.91496, 0.403545, 0, -0.403545, 0.91496, 0, 21.124, 26.783)
+environment = SubResource("Environment_ot4n1")
+
+[node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="pongtafel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5349, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pongtafel/StaticBody3D"]
+shape = SubResource("BoxShape3D_syhy3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
+light_energy = 0.5
+shadow_enabled = true
+
+[node name="ball" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2867, 14.1754)
+physics_material_override = SubResource("PhysicsMaterial_fsgc2")
+can_sleep = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
+shape = SubResource("SphereShape3D_pcrel")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ball"]
+material_override = SubResource("StandardMaterial3D_mfpls")
+mesh = SubResource("SphereMesh_0m3n3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_lyehy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_7rggq")
+skeleton = NodePath("")
