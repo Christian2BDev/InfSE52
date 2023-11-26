@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=13 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://pongie.glb" id="1_5j0q0"]
 
@@ -30,6 +30,11 @@ albedo_color = Color(0, 0.866667, 0.588235, 1)
 [sub_resource type="PlaneMesh" id="PlaneMesh_7rggq"]
 material = SubResource("StandardMaterial3D_vv673")
 size = Vector2(100, 100)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qd2jw"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -70,3 +75,15 @@ shape = SubResource("BoxShape3D_lyehy")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_7rggq")
 skeleton = NodePath("")
+
+[node name="batje" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.04463, 4.30883, 4.77437)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="batje"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.77628, 8.68652, 17.1519)
+shape = SubResource("CylinderShape3D_huocg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="batje"]
+transform = Transform3D(2, 0, 0, 0, -4.37114e-08, -2, 0, 1, -8.74228e-08, -0.827234, 9.09615, 17.2286)
+mesh = SubResource("CylinderMesh_qd2jw")
+skeleton = NodePath("../CollisionShape3D")
