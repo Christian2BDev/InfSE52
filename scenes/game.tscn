@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=18 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Script" path="res://batje.gd" id="2_vmiwi"]
+[ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
+[ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://terrainpong.obj" id="4_thhuy"]
 
 [sub_resource type="Environment" id="Environment_ot4n1"]
 background_mode = 1
@@ -21,16 +23,6 @@ emission = Color(0.929412, 0.654902, 0, 1)
 emission_energy_multiplier = 72.86
 
 [sub_resource type="SphereMesh" id="SphereMesh_0m3n3"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_lyehy"]
-size = Vector3(100, 1, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv673"]
-albedo_color = Color(0, 0.866667, 0.588235, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_7rggq"]
-material = SubResource("StandardMaterial3D_vv673")
-size = Vector2(100, 100)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
 margin = 0.0
@@ -54,6 +46,11 @@ material = SubResource("StandardMaterial3D_2lw2y")
 top_radius = 1.5
 bottom_radius = 1.5
 height = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_abtvj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xmlb6"]
+size = Vector3(300, 1, 300)
 
 [node name="Node3D" type="Node3D"]
 
@@ -86,15 +83,6 @@ shape = SubResource("SphereShape3D_pcrel")
 material_override = SubResource("StandardMaterial3D_mfpls")
 mesh = SubResource("SphereMesh_0m3n3")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_lyehy")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-mesh = SubResource("PlaneMesh_7rggq")
-skeleton = NodePath("")
-
 [node name="batje" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 17.2008, 20)
 script = ExtResource("2_vmiwi")
@@ -111,3 +99,18 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1.5, 0)
 mesh = SubResource("CylinderMesh_3k5xk")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="batje"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.961332, 0)
+shape = SubResource("CylinderShape3D_abtvj")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+material_override = ExtResource("3_cyjd3")
+mesh = ExtResource("4_thhuy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374901, 0)
+shape = SubResource("BoxShape3D_xmlb6")
