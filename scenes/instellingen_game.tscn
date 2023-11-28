@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://hnmiwe0al1fm"]
+
+[ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_p22e4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 678.0
+offset_top = 388.0
+offset_right = 1213.0
+offset_bottom = 688.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_p22e4")

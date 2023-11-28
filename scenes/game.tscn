@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=20 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Script" path="res://batje.gd" id="2_vmiwi"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://terrainpong.obj" id="4_thhuy"]
+[ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="5_dyh8y"]
+[ext_resource type="Script" path="res://scenes/knop_game.gd" id="5_prp6f"]
 
 [sub_resource type="Environment" id="Environment_ot4n1"]
 background_mode = 1
@@ -114,3 +116,21 @@ mesh = ExtResource("4_thhuy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374901, 0)
 shape = SubResource("BoxShape3D_xmlb6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/Control"]
+offset_left = 1712.0
+offset_top = 6.0
+offset_right = 1912.0
+offset_bottom = 81.0
+texture_normal = ExtResource("5_dyh8y")
+script = ExtResource("5_prp6f")
