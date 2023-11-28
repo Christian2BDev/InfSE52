@@ -1,35 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://dykxvmxi3pd7n"]
+[gd_scene load_steps=9 format=3 uid="uid://dykxvmxi3pd7n"]
 
-[ext_resource type="Texture2D" uid="uid://dbv8cj3025one" path="res://img/Godot_bg.png" id="1_k8p2h"]
+[ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_x6gsi"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_vhbwn"]
+[ext_resource type="Script" path="res://scenes/singleplayer.gd" id="3_cny0l"]
 [ext_resource type="Script" path="res://scenes/back.gd" id="3_m3jtk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yeegp"]
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+shadow_size = 20
+shadow_color = Color(0.909804, 0.894118, 0.572549, 1)
+shadow_offset = Vector2(7, 7)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g32k7"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5vop"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_1o5lr"]
+font_size = 26
 
 [node name="Node" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-texture_filter = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_k8p2h")
-stretch_mode = 3
+texture = ExtResource("1_x6gsi")
 
-[node name="welcome" type="Label" parent="."]
+[node name="welcome2" type="Label" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -223.0
+offset_left = -225.5
 offset_top = -418.0
-offset_right = 223.0
+offset_right = 225.5
 offset_bottom = -278.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 100
-text = "Select Game"
+text = "Mode"
+label_settings = SubResource("LabelSettings_yeegp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -51,15 +67,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -340.0
+offset_left = -360.0
 offset_top = -40.0
-offset_right = -140.0
+offset_right = -155.58
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_vhbwn")
+script = ExtResource("3_cny0l")
 
 [node name="Label" type="Label" parent="1"]
 layout_mode = 1
@@ -75,7 +93,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Game 1"
+text = "Singleplayer"
+label_settings = SubResource("LabelSettings_g32k7")
 
 [node name="2" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -85,10 +104,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -40.0
-offset_right = 100.0
+offset_right = 104.42
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_normal = ExtResource("2_vhbwn")
@@ -107,7 +127,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Game 2"
+text = "Multiplayer"
+label_settings = SubResource("LabelSettings_b5vop")
 
 [node name="3" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -115,12 +136,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 140.0
+offset_left = 160.0
 offset_top = -40.0
-offset_right = 340.0
+offset_right = 364.42
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1.2)
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_normal = ExtResource("2_vhbwn")
@@ -139,7 +161,8 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "Game 3"
+text = "AR"
+label_settings = SubResource("LabelSettings_1o5lr")
 
 [node name="back" type="TextureButton" parent="."]
 offset_right = 200.0

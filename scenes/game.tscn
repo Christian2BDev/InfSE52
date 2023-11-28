@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://cymvuda67tw53"]
 
-[ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://pongie.glb" id="1_5j0q0"]
+[ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Script" path="res://batje.gd" id="2_vmiwi"]
 
 [sub_resource type="Environment" id="Environment_ot4n1"]
