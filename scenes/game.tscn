@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=27 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="5_dyh8y"]
 [ext_resource type="Script" path="res://scenes/knop_game.gd" id="5_prp6f"]
 [ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="7_2lvsd"]
+[ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
+[ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
 
 [sub_resource type="Environment" id="Environment_ot4n1"]
 background_mode = 1
@@ -55,6 +57,15 @@ emission_energy_multiplier = 72.86
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmlb6"]
 size = Vector3(300, 1, 300)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yhjyh"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_vvl5v"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_4wpx0"]
+font_size = 64
 
 [sub_resource type="BoxMesh" id="BoxMesh_g0bxv"]
 size = Vector3(20, 20, 0.1)
@@ -150,6 +161,46 @@ offset_bottom = 81.0
 texture_normal = ExtResource("5_dyh8y")
 script = ExtResource("5_prp6f")
 
+[node name="64" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "- SCORE -"
+label_settings = SubResource("LabelSettings_yhjyh")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/64"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 153.0
+offset_top = -3.0
+offset_right = 193.0
+offset_bottom = 88.0
+grow_horizontal = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_vvl5v")
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/64"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 1.0
+offset_right = -152.0
+offset_bottom = 92.0
+grow_horizontal = 2
+text = "0"
+label_settings = SubResource("LabelSettings_4wpx0")
+
 [node name="testwall" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999888, 0.0149395, 0, -0.0149395, 0.999888, 0, 19.95, -18.3885)
 
@@ -158,3 +209,33 @@ mesh = SubResource("BoxMesh_g0bxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="testwall"]
 shape = SubResource("BoxShape3D_o2nin")
+
+[node name="benchpong3" parent="." instance=ExtResource("7_5t68f")]
+transform = Transform3D(0.590902, 0.217612, 0.77684, -0.229843, 0.968437, -0.0964528, -0.773309, -0.121557, 0.622268, -24.1683, 2.03517, -19.6989)
+
+[node name="benchpong4" parent="." instance=ExtResource("7_5t68f")]
+transform = Transform3D(-0.444114, 0.147534, 0.88374, -0.177903, 0.95219, -0.248365, -0.87813, -0.267523, -0.396634, -24.5857, 10.7463, 11.285)
+
+[node name="benchpong2" parent="." instance=ExtResource("7_5t68f")]
+transform = Transform3D(-0.577484, -0.234248, -0.782074, -0.0187075, 0.961498, -0.274176, 0.816188, -0.143701, -0.559632, 25.0293, 5.15831, 20.2619)
+
+[node name="benchpong" parent="." instance=ExtResource("7_5t68f")]
+transform = Transform3D(0.457528, -0.162189, -0.874278, 0.0752019, 0.98676, -0.143701, 0.886009, 0, 0.463667, 24.924, 5.08447, -11.9257)
+
+[node name="publiekpong" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.1787, 0.125095, -26.3339)
+
+[node name="publiekpong2" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9031, 0.125103, -21.1341)
+
+[node name="publiekpong3" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7789, 0.125103, -13.634)
+
+[node name="publiekpong4" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.8404, 0.125099, -24.849)
+
+[node name="publiekpong5" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.7272, 0.125099, -16.5435)
+
+[node name="publiekpong6" parent="." instance=ExtResource("8_falb3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 27.2228, 0.125095, -6.44833)
