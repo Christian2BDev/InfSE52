@@ -1,8 +1,7 @@
-[gd_scene load_steps=30 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=29 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
-[ext_resource type="Script" path="res://scenes/pingpongbal.gd" id="3_pdvpc"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://terrainpong.obj" id="4_thhuy"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="5_dyh8y"]
 [ext_resource type="Script" path="res://scenes/knop_game.gd" id="5_prp6f"]
@@ -126,7 +125,6 @@ physics_material_override = SubResource("PhysicsMaterial_fsgc2")
 gravity_scale = 5.0
 can_sleep = false
 lock_rotation = true
-script = ExtResource("3_pdvpc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
 shape = SubResource("SphereShape3D_pcrel")
