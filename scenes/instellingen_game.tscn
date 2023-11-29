@@ -1,17 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://hnmiwe0al1fm"]
+[gd_scene load_steps=3 format=3 uid="uid://hnmiwe0al1fm"]
 
-[ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_p22e4"]
+[ext_resource type="Script" path="res://scenes/backtogame_instellingen.gd" id="1_vneon"]
+[ext_resource type="Script" path="res://scripts/Quit.gd" id="2_tkr35"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 678.0
-offset_top = 388.0
-offset_right = 1213.0
-offset_bottom = 688.0
-grow_horizontal = 2
+offset_left = 13.0
+offset_top = 6.0
+offset_right = 1922.0
+offset_bottom = 1078.0
 grow_vertical = 2
-texture = ExtResource("1_p22e4")
+
+[node name="back to game" type="Button" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -196.5
+offset_top = 136.0
+offset_right = 203.5
+offset_bottom = 336.0
+grow_horizontal = 2
+text = "back to game"
+script = ExtResource("1_vneon")
+
+[node name="instellingen" type="Button" parent="TextureRect/back to game"]
+layout_mode = 0
+offset_top = 308.0
+offset_right = 400.0
+offset_bottom = 508.0
+text = "settings
+"
+
+[node name="quit" type="Button" parent="TextureRect/back to game/instellingen"]
+layout_mode = 0
+offset_top = 303.0
+offset_right = 400.0
+offset_bottom = 503.0
+text = "quit
+"
+script = ExtResource("2_tkr35")
