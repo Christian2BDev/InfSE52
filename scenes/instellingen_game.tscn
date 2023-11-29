@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://hnmiwe0al1fm"]
 
 [ext_resource type="Script" path="res://scenes/backtogame_instellingen.gd" id="1_vneon"]
-[ext_resource type="Script" path="res://scripts/Quit.gd" id="2_tkr35"]
+[ext_resource type="Script" path="res://scenes/quit.gd" id="2_rnlva"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -42,4 +42,4 @@ offset_right = 400.0
 offset_bottom = 503.0
 text = "quit
 "
-script = ExtResource("2_tkr35")
+script = ExtResource("2_rnlva")
