@@ -2,7 +2,8 @@ extends Button
 
 
 
-
 func _pressed():
-	var knop = load("res://scripts/knop_game.gd")
-	knop.remove()
+	
+	var inst =preload("res://scenes/instellingen_game.tscn").instantiate()
+	get_tree().root.remove_child(inst)
+	
