@@ -3,5 +3,7 @@ extends TextureButton
 
 
 func _pressed():
-	get_tree().change_scene_to_file("res://scenes/instellingen_game.tscn");
+	
+	var inst =preload("res://scenes/instellingen_game.tscn").instance()
+	get_tree().root.add_child(inst)
 	
