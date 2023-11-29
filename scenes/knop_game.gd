@@ -1,9 +1,11 @@
 extends TextureButton
 
-
+var inst =preload("res://scenes/instellingen_game.tscn").instantiate()
 
 func _pressed():
 	
-	var inst =preload("res://scenes/instellingen_game.tscn").instantiate()
-	get_tree().root.add_child(inst)
 	
+	$"../..".add_child(inst)
+
+func remove():
+	$"../..".remove_child(inst)
