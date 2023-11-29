@@ -2,7 +2,8 @@ extends Button
 
 
 
-
 func _pressed():
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
+	
+	var inst =preload("res://scenes/instellingen_game.tscn").instantiate()
+	get_tree().root.remove_child(inst)
+	

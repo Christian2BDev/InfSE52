@@ -24,6 +24,7 @@ offset_top = 136.0
 offset_right = 203.5
 offset_bottom = 336.0
 grow_horizontal = 2
+button_mask = 3
 text = "back to game"
 script = ExtResource("1_vneon")
 
