@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=29 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="7_2lvsd"]
 [ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
 [ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
+[ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://scenes/publiekpong.gltf" id="9_ra0ty"]
+[ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
 
 [sub_resource type="Environment" id="Environment_ot4n1"]
 background_mode = 1
@@ -231,11 +233,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9031, 0.125103, -21.1341)
 [node name="publiekpong3" parent="." instance=ExtResource("8_falb3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.7789, 0.125103, -13.634)
 
-[node name="publiekpong4" parent="." instance=ExtResource("8_falb3")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 21.8404, 0.125099, -24.849)
-
 [node name="publiekpong5" parent="." instance=ExtResource("8_falb3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 25.7272, 0.125099, -16.5435)
 
 [node name="publiekpong6" parent="." instance=ExtResource("8_falb3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 27.2228, 0.125095, -6.44833)
+
+[node name="publiekpong4" parent="." instance=ExtResource("9_ra0ty")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.3804, 0.125099, -22.2738)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_qpeqp")
+autoplay = true
+bus = &"Muziek"
