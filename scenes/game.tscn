@@ -107,17 +107,17 @@ shape = SubResource("CylinderShape3D_abtvj")
 [node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="pongtafel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5349, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5349, 10.5729)
 
 [node name="collisionshape_veld1" type="CollisionShape3D" parent="pongtafel/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -11.8327, -0.457392)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -1.20721, -0.457392)
 shape = SubResource("BoxShape3D_syhy3")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="pongtafel"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0698, 0)
 
 [node name="CollisionShape_veld2" type="CollisionShape3D" parent="pongtafel/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.8327, -10.4457)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.4554, -10.4457)
 shape = SubResource("BoxShape3D_syhy3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
