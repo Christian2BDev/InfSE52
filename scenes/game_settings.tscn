@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxq3yqjyjxfxi"]
+
+[ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_ykv4x"]
+
+[node name="game_settings" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(190, 200)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 1922.0
+offset_bottom = 1074.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ykv4x")
+expand_mode = 1
