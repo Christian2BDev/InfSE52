@@ -13,6 +13,8 @@ config_version=5
 config/name="Pong ft Hugo"
 run/main_scene="res://scenes/home.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
+boot_splash/bg_color=Color(0, 0.584314, 0.968627, 1)
+boot_splash/image="res://img/achtergrond_ui-transformed.png"
 config/icon="res://img/icon.svg"
 
 [display]

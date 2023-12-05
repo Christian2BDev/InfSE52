@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-# Called when the node enters the scene tree for the first time.
 
 func _input(event):
 	
@@ -13,6 +12,8 @@ func _input(event):
 			position = Vector3(position3D.x,position3D.y,position.z)
 		else:
 			position = Vector3(position3D.x,position.y,position.z)
+
+
 func _process( some_change ):
 	look_at(Vector3(0,15,-10))
 	if Input.is_mouse_button_pressed( 1 ):

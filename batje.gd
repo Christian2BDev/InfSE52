@@ -1,8 +1,6 @@
 extends StaticBody3D
 
 
-# Called when the node enters the scene tree for the first time.
-
 func _input(event):
 	if event is InputEventMouseMotion:
 		var Camera = get_viewport().get_camera_3d()
@@ -13,6 +11,8 @@ func _input(event):
 			position = Vector3(position3D.x,position3D.y,position.z)
 		else:
 			position = Vector3(position3D.x,position.y,position.z)
+
+
 func _process( some_change ):
 	if Input.is_mouse_button_pressed( 1 ):
 		position = position.move_toward(Vector3(position.x, position.y,0),1)
