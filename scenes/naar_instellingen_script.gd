@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 var inst =preload("res://scenes/instelling_ingame.tscn").instantiate()
 
