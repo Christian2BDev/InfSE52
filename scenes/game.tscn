@@ -1,6 +1,7 @@
 [gd_scene load_steps=29 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
+[ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://scenes/world.tres" id="1_cwn63"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://terrainpong.obj" id="4_thhuy"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="5_dyh8y"]
@@ -10,10 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
 [ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://scenes/publiekpong.gltf" id="9_ra0ty"]
 [ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
-
-[sub_resource type="Environment" id="Environment_ot4n1"]
-background_mode = 1
-background_color = Color(0, 0.447059, 0.556863, 1)
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
 margin = 0.0
@@ -78,9 +75,11 @@ size = Vector3(20, 20, 1)
 
 [node name="Node3D" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_cwn63")
+
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.91496, 0.403545, 0, -0.403545, 0.91496, 0, 21.124, 26.783)
-environment = SubResource("Environment_ot4n1")
 
 [node name="batje" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 20)
