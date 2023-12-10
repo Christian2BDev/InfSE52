@@ -4,8 +4,8 @@
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://scenes/world.tres" id="1_cwn63"]
 [ext_resource type="Material" uid="uid://b8afe4mph3bm5" path="res://terrain.tres" id="3_cyjd3"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://terrainpong.obj" id="4_thhuy"]
-[ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="5_dyh8y"]
 [ext_resource type="Script" path="res://scenes/knop_game.gd" id="5_prp6f"]
+[ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="7_2lvsd"]
 [ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
 [ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
@@ -163,11 +163,12 @@ grow_vertical = 2
 
 [node name="TextureButton" type="TextureButton" parent="UI/UIControl"]
 layout_mode = 0
-offset_left = 1712.0
-offset_top = 6.0
-offset_right = 1912.0
-offset_bottom = 81.0
-texture_normal = ExtResource("5_dyh8y")
+offset_left = 1789.0
+offset_top = 4.0
+offset_right = 2301.0
+offset_bottom = 516.0
+scale = Vector2(0.25, 0.25)
+texture_normal = ExtResource("6_npoak")
 script = ExtResource("5_prp6f")
 
 [node name="64" type="Label" parent="UI/UIControl"]
