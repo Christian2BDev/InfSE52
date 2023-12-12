@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://0m0jxbv105ar"]
+[gd_scene load_steps=9 format=3 uid="uid://0m0jxbv105ar"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_rs4rl"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_04222"]
 [ext_resource type="Script" path="res://scripts/Play.gd" id="3_u2dow"]
 [ext_resource type="Script" path="res://scripts/Settings.gd" id="4_2ts77"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="5_sorbj"]
+[ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="6_ihin2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ep76g"]
 font_size = 100
@@ -158,3 +159,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ihin2")
+autoplay = true
+bus = &"Muziek"
