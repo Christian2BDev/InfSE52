@@ -21,3 +21,4 @@ func _process( some_change ):
 	else:
 		if position.z != 20:
 			position = position.move_toward(Vector3(position.x, position.y,20),1)
+			
