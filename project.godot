@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(0, 0.584314, 0.968627, 1)
 boot_splash/image="res://img/achtergrond_ui-transformed.png"
 config/icon="res://img/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://sounds/default_bus_layout.tres"
+
 [display]
 
 window/size/viewport_width=1920

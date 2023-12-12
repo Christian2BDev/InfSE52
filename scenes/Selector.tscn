@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_x6gsi"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_vhbwn"]
-[ext_resource type="Script" path="res://scenes/singleplayer.gd" id="3_cny0l"]
-[ext_resource type="Script" path="res://scenes/back.gd" id="3_m3jtk"]
+[ext_resource type="Script" path="res://scripts/singleplayer.gd" id="3_rucuj"]
+[ext_resource type="Script" path="res://scripts/back.gd" id="4_sh8u3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yeegp"]
 font_size = 100
@@ -77,7 +77,7 @@ scale = Vector2(1.2, 1.2)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("2_vhbwn")
-script = ExtResource("3_cny0l")
+script = ExtResource("3_rucuj")
 
 [node name="Label" type="Label" parent="1"]
 layout_mode = 1
@@ -170,7 +170,7 @@ offset_bottom = 75.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_normal = ExtResource("2_vhbwn")
-script = ExtResource("3_m3jtk")
+script = ExtResource("4_sh8u3")
 
 [node name="Label" type="Label" parent="back"]
 layout_mode = 1

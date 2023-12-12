@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cxq3yqjyjxfxi"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_ykv4x"]
-[ext_resource type="Script" path="res://scenes/mastervolume_script.gd" id="2_ab2pf"]
+[ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="2_ab2pf"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="3_gsx8h"]
-[ext_resource type="Script" path="res://scenes/backtomenu_script.gd" id="4_64uv1"]
+[ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="4_64uv1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0d6wo"]
 font_size = 40

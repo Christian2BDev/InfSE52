@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://dyueyy2smfwg4"]
 
-[ext_resource type="PackedScene" uid="uid://ddg42or8hjxvl" path="res://scenes/terrainpong.glb" id="1_scr01"]
+[ext_resource type="PackedScene" uid="uid://ddg42or8hjxvl" path="res://objects/terrainpong.glb" id="1_scr01"]
 
 [node name="terrainpong" instance=ExtResource("1_scr01")]

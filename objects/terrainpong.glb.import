@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://u8scs58qtwhw"
-path="res://.godot/imported/publiekpong.gltf-2b6b59f6a049dc529031541ebd59a216.scn"
+uid="uid://ddg42or8hjxvl"
+path="res://.godot/imported/terrainpong.glb-b2bad60e9f21a18ebd5f4b5384f20433.scn"
 
 [deps]
 
-source_file="res://scenes/publiekpong.gltf"
-dest_files=["res://.godot/imported/publiekpong.gltf-2b6b59f6a049dc529031541ebd59a216.scn"]
+source_file="res://objects/terrainpong.glb"
+dest_files=["res://.godot/imported/terrainpong.glb-b2bad60e9f21a18ebd5f4b5384f20433.scn"]
 
 [params]
 
@@ -28,5 +28,12 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "res://terrain.tres"
+}
+}
+}
 gltf/embedded_image_handling=1
