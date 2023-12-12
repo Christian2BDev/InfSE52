@@ -1,9 +1,8 @@
-[gd_scene load_steps=35 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=36 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
 [ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="2_801ql"]
-[ext_resource type="Script" path="res://scenes/batje2.gd" id="3_pqieo"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
 [ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="6_uv5l3"]
@@ -84,6 +83,13 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_4wpx0"]
 font_size = 64
 
+[sub_resource type="BoxMesh" id="BoxMesh_g0bxv"]
+size = Vector3(20, 20, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o2nin"]
+margin = 0.0
+size = Vector3(20, 20, 1)
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -111,50 +117,6 @@ mesh = SubResource("CylinderMesh_3k5xk")
 skeleton = NodePath("../CollisionShape3D")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="batje"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
-shape = SubResource("CylinderShape3D_abtvj")
-
-[node name="batje2" type="CharacterBody3D" parent="batje"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 20)
-script = ExtResource("2_801ql")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="batje/batje2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_huocg")
-
-[node name="handvat" type="MeshInstance3D" parent="batje/batje2"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
-mesh = SubResource("CylinderMesh_qd2jw")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="batje" type="MeshInstance3D" parent="batje/batje2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_3k5xk")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="batje/batje2"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
-shape = SubResource("CylinderShape3D_abtvj")
-
-[node name="batje2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, -19.3608)
-script = ExtResource("3_pqieo")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="batje2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-shape = SubResource("CylinderShape3D_huocg")
-
-[node name="handvat" type="MeshInstance3D" parent="batje2"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
-mesh = SubResource("CylinderMesh_qd2jw")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="batje" type="MeshInstance3D" parent="batje2"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("CylinderMesh_3k5xk")
-skeleton = NodePath("../CollisionShape3D")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="batje2"]
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
 shape = SubResource("CylinderShape3D_abtvj")
 
@@ -381,6 +343,16 @@ offset_bottom = 92.0
 grow_horizontal = 2
 text = "0"
 label_settings = SubResource("LabelSettings_4wpx0")
+
+[node name="testwall" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999888, 0.0149395, 0, -0.0149395, 0.999888, 0, 19.95, -18.3885)
+
+[node name="testwall_mesh" type="MeshInstance3D" parent="testwall"]
+transform = Transform3D(1, 0, 0, 0, 1, 9.31323e-10, 0, -9.31323e-10, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_g0bxv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="testwall"]
+shape = SubResource("BoxShape3D_o2nin")
 
 [node name="benchpong3" parent="." instance=ExtResource("7_5t68f")]
 transform = Transform3D(0.590902, 0.217612, 0.77684, -0.0619208, 0.972327, -0.225272, -0.804363, 0.0850115, 0.588025, -24.1683, 2.48229, -19.6989)

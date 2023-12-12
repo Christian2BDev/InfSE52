@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dykxvmxi3pd7n"]
+[gd_scene load_steps=9 format=3 uid="uid://dykxvmxi3pd7n"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_x6gsi"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_vhbwn"]
 [ext_resource type="Script" path="res://scripts/singleplayer.gd" id="3_rucuj"]
 [ext_resource type="Script" path="res://scripts/back.gd" id="4_sh8u3"]
-[ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="5_seu8y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yeegp"]
 font_size = 100
@@ -188,8 +187,3 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "<- Back"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_seu8y")
-autoplay = true
-bus = &"Muziek"
