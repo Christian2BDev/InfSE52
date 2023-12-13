@@ -1,12 +1,15 @@
 extends CharacterBody3D
 
-@export var speed=500000
+
 var ball
 
 func _ready():
-	ball = $ball
+	ball = $"../ball"
 
 
 func _physics_process(delta):
-	var direction=(ball.position).normalized()
-	velocity.x =direction.x * speed * delta
+	if ball.position.z <=0:
+		position = position.move_toward(Vector3(ball.position.x, ball.position.y,ball.position.z + 2),0.1)
+	else:
+		position = position.move_toward(Vector3(ball.position.x, ball.position.y,-17),0.05)
+		
