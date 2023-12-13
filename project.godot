@@ -32,6 +32,11 @@ window/stretch/mode="viewport"
 
 import/fbx/enabled=false
 
+[layer_names]
+
+3d_physics/layer_1="tafel"
+3d_physics/layer_2="ball"
+
 [rendering]
 
 renderer/rendering_method="mobile"

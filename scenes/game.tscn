@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=37 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
 [ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="2_801ql"]
+[ext_resource type="Script" path="res://scenes/ball.gd" id="4_xsk71"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
 [ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="6_uv5l3"]
@@ -120,21 +121,23 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
 shape = SubResource("CylinderShape3D_abtvj")
 
-[node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
+[node name="p2" type="StaticBody3D" parent="." groups=["p2"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0698, 0)
+collision_layer = 3
 
-[node name="StaticBody3D" type="StaticBody3D" parent="pongtafel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5349, 10.5729)
+[node name="CollisionShape_veld2" type="CollisionShape3D" parent="p2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.4554, -10.4457)
+shape = SubResource("BoxShape3D_syhy3")
 
-[node name="collisionshape_veld1" type="CollisionShape3D" parent="pongtafel/StaticBody3D"]
+[node name="p1" type="StaticBody3D" parent="." groups=["p1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2281, 10.5729)
+collision_layer = 3
+
+[node name="collisionshape_veld1" type="CollisionShape3D" parent="p1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -1.20721, -0.457392)
 shape = SubResource("BoxShape3D_syhy3")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="pongtafel"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0698, 0)
-
-[node name="CollisionShape_veld2" type="CollisionShape3D" parent="pongtafel/StaticBody3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.4554, -10.4457)
-shape = SubResource("BoxShape3D_syhy3")
+[node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
@@ -143,12 +146,14 @@ shadow_enabled = true
 
 [node name="ball" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2867, 15.7024)
-collision_priority = 10.0
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_fsgc2")
 gravity_scale = 5.0
+max_contacts_reported = 9999
+contact_monitor = true
 can_sleep = false
 lock_rotation = true
+script = ExtResource("4_xsk71")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
 shape = SubResource("SphereShape3D_pcrel")
@@ -316,7 +321,7 @@ grow_horizontal = 2
 text = "- SCORE -"
 label_settings = SubResource("LabelSettings_yhjyh")
 
-[node name="Label" type="Label" parent="UI/UIControl/64"]
+[node name="p2label" type="Label" parent="UI/UIControl/64"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -331,7 +336,7 @@ text = "0
 label_settings = SubResource("LabelSettings_vvl5v")
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="UI/UIControl/64"]
+[node name="p1label" type="Label" parent="UI/UIControl/64"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -388,3 +393,5 @@ transform = Transform3D(-0.917213, 0, -0.398397, 0, 1, 0, 0.398397, 0, -0.917213
 stream = ExtResource("10_qpeqp")
 autoplay = true
 bus = &"Muziek"
+
+[connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]
