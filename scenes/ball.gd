@@ -15,6 +15,4 @@ func score(who):
 	
 	var punt= get_node("../UI/UIControl/64/" + who).text
 	
-	if punt == 11: 
-		pass
 

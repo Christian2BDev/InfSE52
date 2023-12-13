@@ -1,9 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=36 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
 [ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="2_801ql"]
-[ext_resource type="Script" path="res://scenes/ball.gd" id="4_xsk71"]
 [ext_resource type="Script" path="res://scenes/batje2.gd" id="3_u1jrc"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
 [ext_resource type="Script" path="res://scenes/ball.gd" id="5_qr6xh"]
@@ -119,6 +118,11 @@ shape = SubResource("CylinderShape3D_abtvj")
 [node name="p2" type="StaticBody3D" parent="." groups=["p2"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0698, 0)
 collision_layer = 3
+
+[node name="CollisionShape_veld2" type="CollisionShape3D" parent="p2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.4554, -10.4457)
+shape = SubResource("BoxShape3D_syhy3")
+
 [node name="batje2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, -17.0488)
 script = ExtResource("3_u1jrc")
@@ -143,10 +147,6 @@ shape = SubResource("CylinderShape3D_abtvj")
 
 [node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
 
-[node name="CollisionShape_veld2" type="CollisionShape3D" parent="p2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.139649, -11.4554, -10.4457)
-shape = SubResource("BoxShape3D_syhy3")
-
 [node name="p1" type="StaticBody3D" parent="." groups=["p1"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2281, 10.5729)
 collision_layer = 3
@@ -154,8 +154,6 @@ collision_layer = 3
 [node name="collisionshape_veld1" type="CollisionShape3D" parent="p1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -1.20721, -0.457392)
 shape = SubResource("BoxShape3D_syhy3")
-
-[node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
@@ -171,7 +169,6 @@ max_contacts_reported = 9999
 contact_monitor = true
 can_sleep = false
 lock_rotation = true
-script = ExtResource("4_xsk71")
 script = ExtResource("5_qr6xh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
@@ -193,7 +190,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374901, 0)
 shape = SubResource("BoxShape3D_xmlb6")
 
 [node name="Popup" type="Popup" parent="."]
-position = Vector2i(250, 36)
+position = Vector2i(0, 36)
 size = Vector2i(1500, 750)
 visible = true
 unresizable = false
