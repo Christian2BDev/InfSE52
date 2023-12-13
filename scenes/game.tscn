@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=37 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -41,6 +41,9 @@ bottom_radius = 1.5
 height = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_abtvj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nreay"]
+size = Vector3(157.587, 1.01513, 247.075)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_syhy3"]
 size = Vector3(19.2519, 3.28165, 20.662)
@@ -115,7 +118,23 @@ skeleton = NodePath("../CollisionShape3D")
 transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.118, 0)
 shape = SubResource("CylinderShape3D_abtvj")
 
-[node name="p2" type="StaticBody3D" parent="." groups=["p2"]]
+[node name="bound" type="StaticBody3D" parent="." groups=["bound"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.0612, 0)
+collision_layer = 3
+
+[node name="CollisionShape_veld2" type="CollisionShape3D" parent="bound"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.86129, 0)
+shape = SubResource("BoxShape3D_nreay")
+
+[node name="p1" type="StaticBody3D" parent="." groups=["table"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2281, 10.5729)
+collision_layer = 3
+
+[node name="collisionshape_veld1" type="CollisionShape3D" parent="p1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -1.20721, -0.457392)
+shape = SubResource("BoxShape3D_syhy3")
+
+[node name="p2" type="StaticBody3D" parent="." groups=["table"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.0698, 0)
 collision_layer = 3
 
@@ -146,14 +165,6 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, -1.
 shape = SubResource("CylinderShape3D_abtvj")
 
 [node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
-
-[node name="p1" type="StaticBody3D" parent="." groups=["p1"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2281, 10.5729)
-collision_layer = 3
-
-[node name="collisionshape_veld1" type="CollisionShape3D" parent="p1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113962, -1.20721, -0.457392)
-shape = SubResource("BoxShape3D_syhy3")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)

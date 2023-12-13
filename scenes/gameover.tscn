@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4xjkuokho0oc"]
+[gd_scene load_steps=6 format=3 uid="uid://c4xjkuokho0oc"]
 
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="1_fug16"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="2_30pin"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="3_i7clw"]
-[ext_resource type="Script" path="res://scripts/knop_game.gd" id="4_4fcqf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qxrpg"]
 font_size = 20
@@ -13,15 +12,9 @@ font_size = 20
 
 [node name="Node3D" type="Node3D"]
 
-[node name="finish_scherm" type="Popup" parent="."]
-position = Vector2i(250, 36)
-size = Vector2i(1920, 1080)
-visible = true
-unresizable = false
-borderless = false
-content_scale_size = Vector2i(100, 100)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="finish_scherm"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.121569, 0.121569, 0.121569, 1)
 
-[node name="back to menu knop" type="TextureButton" parent="finish_scherm"]
+[node name="back to menu knop" type="TextureButton" parent="CanvasLayer"]
 offset_left = 650.0
 offset_top = 800.0
 offset_right = 850.0
@@ -37,7 +30,7 @@ offset_bottom = 875.0
 texture_normal = ExtResource("1_fug16")
 script = ExtResource("2_30pin")
 
-[node name="Label" type="Label" parent="finish_scherm/back to menu knop"]
+[node name="Label" type="Label" parent="CanvasLayer/back to menu knop"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,7 +48,7 @@ text = "back to main menu
 "
 label_settings = SubResource("LabelSettings_qxrpg")
 
-[node name="Quit" type="TextureButton" parent="finish_scherm"]
+[node name="Quit" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -72,7 +65,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("1_fug16")
 script = ExtResource("3_i7clw")
 
-[node name="Label" type="Label" parent="finish_scherm/Quit"]
+[node name="Label" type="Label" parent="CanvasLayer/Quit"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -89,7 +82,7 @@ theme_override_font_sizes/font_size = 36
 text = "Quit game
 "
 
-[node name="Label" type="Label" parent="finish_scherm"]
+[node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -103,7 +96,7 @@ grow_vertical = 2
 scale = Vector2(5, 5)
 text = "goed gedaan je hebt gewonnen!"
 
-[node name="replay" type="TextureButton" parent="finish_scherm"]
+[node name="replay" type="TextureButton" parent="CanvasLayer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -113,9 +106,8 @@ offset_right = 450.0
 offset_bottom = -205.0
 grow_vertical = 0
 texture_normal = ExtResource("1_fug16")
-script = ExtResource("4_4fcqf")
 
-[node name="Label" type="Label" parent="finish_scherm/replay"]
+[node name="Label" type="Label" parent="CanvasLayer/replay"]
 layout_mode = 0
 offset_top = 20.0
 offset_right = 195.0
