@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=38 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/batje2.gd" id="3_u1jrc"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
 [ext_resource type="Script" path="res://scenes/ball.gd" id="5_qr6xh"]
+[ext_resource type="Texture2D" uid="uid://chlbkv70be6nh" path="res://img/floor/leafy_grass_mask_1k.png" id="6_g6gh0"]
 [ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="6_uv5l3"]
 [ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
@@ -63,7 +64,8 @@ emission_energy_multiplier = 72.86
 [sub_resource type="SphereMesh" id="SphereMesh_0m3n3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsg6n"]
-albedo_color = Color(0, 1, 0.415686, 1)
+albedo_color = Color(0, 0.65098, 0.254902, 1)
+normal_texture = ExtResource("6_g6gh0")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmlb6"]
 size = Vector3(300, 1, 300)
