@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=40 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://scenes/batje2.gd" id="3_u1jrc"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
 [ext_resource type="Script" path="res://scenes/ball.gd" id="5_qr6xh"]
-[ext_resource type="Texture2D" uid="uid://chlbkv70be6nh" path="res://img/floor/leafy_grass_mask_1k.png" id="6_g6gh0"]
 [ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="6_uv5l3"]
 [ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
@@ -17,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://objects/publiekpong.gltf" id="9_ra0ty"]
 [ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
 [ext_resource type="Script" path="res://scripts/knop_game.gd" id="11_6wc5n"]
+[ext_resource type="PackedScene" uid="uid://b0fg30ab7c6p3" path="res://treepong.gltf" id="18_7snip"]
+[ext_resource type="PackedScene" uid="uid://ce4t6fipwb0co" path="res://img/graspiet.gltf" id="18_cg3tm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
 margin = 0.0
@@ -44,7 +45,7 @@ height = 0.5
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_abtvj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nreay"]
-size = Vector3(157.587, 1.01513, 247.075)
+size = Vector3(1570.59, 1.015, 2470.07)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_syhy3"]
 size = Vector3(19.2519, 3.28165, 20.662)
@@ -63,9 +64,12 @@ emission_energy_multiplier = 72.86
 
 [sub_resource type="SphereMesh" id="SphereMesh_0m3n3"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cigf5"]
+load_path = "res://.godot/imported/leafy_grass_mask_1k.png-ae462041f3d5fea424027a2de42321a0.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsg6n"]
-albedo_color = Color(0, 0.65098, 0.254902, 1)
-normal_texture = ExtResource("6_g6gh0")
+albedo_color = Color(0.45098, 0.286275, 0, 1)
+normal_texture = SubResource("CompressedTexture2D_cigf5")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmlb6"]
 size = Vector3(300, 1, 300)
@@ -168,9 +172,12 @@ shape = SubResource("CylinderShape3D_abtvj")
 
 [node name="pongtafel" parent="." instance=ExtResource("1_5j0q0")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="1" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 20, 0)
-light_energy = 0.5
+light_color = Color(0.952941, 0.984314, 0.764706, 1)
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 1.274
+light_angular_distance = 4.62
 shadow_enabled = true
 
 [node name="ball" type="RigidBody3D" parent="."]
@@ -194,7 +201,7 @@ mesh = SubResource("SphereMesh_0m3n3")
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0.103664)
 material_override = SubResource("StandardMaterial3D_xsg6n")
 mesh = ExtResource("5_5oa58")
 
@@ -350,7 +357,7 @@ grow_horizontal = 2
 text = "- SCORE -"
 label_settings = SubResource("LabelSettings_yhjyh")
 
-[node name="p2label" type="Label" parent="UI/UIControl/64"]
+[node name="p1label" type="Label" parent="UI/UIControl/64"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -365,7 +372,7 @@ text = "0
 label_settings = SubResource("LabelSettings_vvl5v")
 horizontal_alignment = 2
 
-[node name="p1label" type="Label" parent="UI/UIControl/64"]
+[node name="p2label" type="Label" parent="UI/UIControl/64"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -412,5 +419,710 @@ transform = Transform3D(-0.917213, 0, -0.398397, 0, 1, 0, 0.398397, 0, -0.917213
 stream = ExtResource("10_qpeqp")
 autoplay = true
 bus = &"Muziek"
+
+[node name="treepong2" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3944, 11.0127, 19.6364)
+
+[node name="treepong" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0392, 14.8254, 22.0093)
+
+[node name="treepong3" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(0.915, 0, 0, 0, 0.915, 0, 0, 0, 0.915, -9.08601, 11.563, -31.2196)
+
+[node name="treepong4" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1.295, 0, 0, 0, 1.295, 0, 0, 0, 1.295, 9.54485, 11.0127, -31.2196)
+
+[node name="treepong5" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.474656, 11.0127, -39.2348)
+
+[node name="treepong8" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6977, 11.0127, -39.2339)
+
+[node name="treepong9" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.241, 11.0127, -38.2467)
+
+[node name="treepong10" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6261, 11.0127, -42.8059)
+
+[node name="treepong11" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1.34, 0, 0, 0, 1.34, 0, 0, 0, 1.34, -17.2507, 11.0127, -42.8059)
+
+[node name="treepong12" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3611, 11.0127, -42.8059)
+
+[node name="treepong13" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(0.944931, 0.00664235, -0.00929185, -0.00668725, 0.944965, -0.00454141, 0.00925959, 0.00460683, 0.944943, 4.91354, 11.0127, -42.8059)
+
+[node name="treepong14" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(0.999927, 0.00702895, -0.00983264, -0.00707646, 0.999963, -0.00480572, 0.0097985, 0.00487495, 0.99994, 18.4125, 11.0127, -42.8059)
+
+[node name="treepong15" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(0.999927, 0.00702895, -0.00983264, -0.00707646, 0.999963, -0.00480572, 0.0097985, 0.00487495, 0.99994, 18.4125, 11.0127, -42.8059)
+
+[node name="treepong16" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1.11992, 0.00787242, -0.0110126, -0.00792563, 1.11996, -0.00538241, 0.0109743, 0.00545995, 1.11993, 36.372, 11.0127, -32.5629)
+
+[node name="treepong17" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(0.82494, 0.00579888, -0.00811193, -0.00583808, 0.82497, -0.00396472, 0.00808376, 0.00402183, 0.824951, -28.7144, 11.0127, -32.5629)
+
+[node name="treepong6" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1.11, 0, 0, 0, 1.11, 0, 0, 0, 1.11, 22.2647, 8.35354, -26.5815)
+
+[node name="treepong7" parent="." instance=ExtResource("18_7snip")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.2647, 11.0127, 11.1549)
+
+[node name="graspiet" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 1.61299, 1.4871, 17.6083)
+
+[node name="graspiet2" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -1.52149, 1.4871, 17.6083)
+
+[node name="graspiet3" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -1.52149, 1.4871, 14.7732)
+
+[node name="graspiet4" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0.591488, 1.4871, 14.7732)
+
+[node name="graspiet5" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 3.32376, 1.4871, 14.7732)
+
+[node name="graspiet6" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 6.08255, 1.4871, 13.9011)
+
+[node name="graspiet7" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 9.46356, 1.4871, 12.5386)
+
+[node name="graspiet8" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 9.46356, 1.4871, 15.8323)
+
+[node name="graspiet9" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 6.57573, 1.4871, 17.2538)
+
+[node name="graspiet10" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 3.83653, 1.4871, 17.2538)
+
+[node name="graspiet11" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -4.95914, 1.4871, 17.2538)
+
+[node name="graspiet12" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -4.95914, 1.4871, 14.6226)
+
+[node name="graspiet13" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -8.53765, 1.4871, 14.6226)
+
+[node name="graspiet14" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -12.2613, 1.4871, 13.9726)
+
+[node name="graspiet15" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -10.3718, 1.4871, 15.2141)
+
+[node name="graspiet16" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 1.61299, 1.4871, 21.3634)
+
+[node name="graspiet17" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -1.52149, 1.4871, 21.3634)
+
+[node name="graspiet18" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -1.52149, 1.4871, 18.5283)
+
+[node name="graspiet19" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 0.591488, 1.4871, 18.5283)
+
+[node name="graspiet20" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 3.32376, 1.4871, 18.5283)
+
+[node name="graspiet21" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 6.08255, 1.4871, 17.6562)
+
+[node name="graspiet22" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 9.46356, 1.4871, 16.2937)
+
+[node name="graspiet23" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 9.46356, 1.4871, 19.5873)
+
+[node name="graspiet24" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 6.57573, 1.4871, 21.0088)
+
+[node name="graspiet25" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, 3.83653, 1.4871, 21.0088)
+
+[node name="graspiet26" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -4.95914, 1.4871, 21.0088)
+
+[node name="graspiet27" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -4.95914, 1.4871, 18.3776)
+
+[node name="graspiet28" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -8.53765, 1.4871, 18.3776)
+
+[node name="graspiet29" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -12.2613, 1.4871, 17.7276)
+
+[node name="graspiet30" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.475, 0, 0, 0, 0.475, 0, 0, 0, 0.475, -10.3718, 1.4871, 18.9692)
+
+[node name="graspiet31" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.16158, 1.4871, -0.222535)
+
+[node name="graspiet32" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.21059, 1.4871, 2.91157)
+
+[node name="graspiet33" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.37582, 1.4871, 2.9559)
+
+[node name="graspiet34" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.34278, 1.4871, 0.843177)
+
+[node name="graspiet35" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.30006, 1.4871, -1.88877)
+
+[node name="graspiet36" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 5.3849, 1.4871, -4.63358)
+
+[node name="graspiet37" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 3.9697, 1.4871, -7.99287)
+
+[node name="graspiet38" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 7.26294, 1.4871, -8.04437)
+
+[node name="graspiet39" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.72944, 1.4871, -5.17912)
+
+[node name="graspiet40" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.77227, 1.4871, -2.44026)
+
+[node name="graspiet41" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.90981, 1.4871, 6.35434)
+
+[node name="graspiet42" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.27894, 1.4871, 6.39548)
+
+[node name="graspiet43" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.3349, 1.4871, 9.97356)
+
+[node name="graspiet44" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 5.74319, 1.4871, 13.7069)
+
+[node name="graspiet45" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.95503, 1.4871, 11.7983)
+
+[node name="graspiet46" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.9162, 1.4871, -0.281256)
+
+[node name="graspiet47" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.9652, 1.4871, 2.85285)
+
+[node name="graspiet48" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.1304, 1.4871, 2.89718)
+
+[node name="graspiet49" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0974, 1.4871, 0.784457)
+
+[node name="graspiet50" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0547, 1.4871, -1.94748)
+
+[node name="graspiet51" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.13951, 1.4871, -4.6923)
+
+[node name="graspiet52" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 7.72431, 1.4871, -8.05159)
+
+[node name="graspiet53" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 11.0176, 1.4871, -8.10309)
+
+[node name="graspiet54" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.484, 1.4871, -5.23784)
+
+[node name="graspiet55" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.5269, 1.4871, -2.49898)
+
+[node name="graspiet56" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.6644, 1.4871, 6.29562)
+
+[node name="graspiet57" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0336, 1.4871, 6.33676)
+
+[node name="graspiet58" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0895, 1.4871, 9.91484)
+
+[node name="graspiet59" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.4978, 1.4871, 13.6482)
+
+[node name="graspiet60" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.7096, 1.4871, 11.7395)
+
+[node name="graspiet61" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.16158, 1.4871, -21.3757)
+
+[node name="graspiet62" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.21059, 1.4871, -18.2416)
+
+[node name="graspiet63" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.37582, 1.4871, -18.1972)
+
+[node name="graspiet64" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.34278, 1.4871, -20.31)
+
+[node name="graspiet65" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.30006, 1.4871, -23.0419)
+
+[node name="graspiet66" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 5.3849, 1.4871, -25.7867)
+
+[node name="graspiet67" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 3.9697, 1.4871, -29.146)
+
+[node name="graspiet68" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 7.26294, 1.4871, -29.1975)
+
+[node name="graspiet69" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.72944, 1.4871, -26.3323)
+
+[node name="graspiet70" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.77227, 1.4871, -23.5934)
+
+[node name="graspiet71" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 8.90981, 1.4871, -14.7988)
+
+[node name="graspiet72" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.27894, 1.4871, -14.7577)
+
+[node name="graspiet73" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.3349, 1.4871, -11.1796)
+
+[node name="graspiet74" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 5.74319, 1.4871, -7.44626)
+
+[node name="graspiet75" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 6.95503, 1.4871, -9.35487)
+
+[node name="graspiet76" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.9162, 1.4871, -21.4344)
+
+[node name="graspiet77" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.9652, 1.4871, -18.3003)
+
+[node name="graspiet78" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.1304, 1.4871, -18.256)
+
+[node name="graspiet79" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0974, 1.4871, -20.3687)
+
+[node name="graspiet80" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0547, 1.4871, -23.1006)
+
+[node name="graspiet81" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.13951, 1.4871, -25.8454)
+
+[node name="graspiet82" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 7.72431, 1.4871, -29.2047)
+
+[node name="graspiet83" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 11.0176, 1.4871, -29.2562)
+
+[node name="graspiet84" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.484, 1.4871, -26.391)
+
+[node name="graspiet85" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.5269, 1.4871, -23.6521)
+
+[node name="graspiet86" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 12.6644, 1.4871, -14.8575)
+
+[node name="graspiet87" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0336, 1.4871, -14.8164)
+
+[node name="graspiet88" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.0895, 1.4871, -11.2383)
+
+[node name="graspiet89" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 9.4978, 1.4871, -7.50498)
+
+[node name="graspiet90" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00742781, 0, 0.474942, 0, 0.475, 0, -0.474942, 0, -0.00742781, 10.7096, 1.4871, -9.41358)
+
+[node name="graspiet100" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.0392017, 0, 0.47338, 0, 0.475, 0, -0.47338, 0, -0.0392017, 14.8261, 1.4871, -15.6524)
+
+[node name="graspiet121" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 25.0481, 1.4871, -13.3067)
+
+[node name="graspiet122" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 24.1842, 1.4871, -10.2936)
+
+[node name="graspiet123" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 21.4589, 1.4871, -11.075)
+
+[node name="graspiet124" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.0412, 1.4871, -13.1062)
+
+[node name="graspiet125" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.7943, 1.4871, -15.7326)
+
+[node name="graspiet126" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.7164, 1.4871, -18.6249)
+
+[node name="graspiet127" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.3385, 1.4871, -22.2505)
+
+[node name="graspiet128" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 25.5046, 1.4871, -21.3427)
+
+[node name="graspiet129" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 26.0751, 1.4871, -18.1749)
+
+[node name="graspiet130" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 25.3201, 1.4871, -15.5418)
+
+[node name="graspiet131" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.8958, 1.4871, -7.08685)
+
+[node name="graspiet132" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 20.3666, 1.4871, -7.81206)
+
+[node name="graspiet140" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 26.4039, 1.4871, -14.6976)
+
+[node name="graspiet147" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 23.9762, 1.4871, -6.77709)
+
+[node name="graspiet148" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 22.9899, 1.4871, -3.33718)
+
+[node name="graspiet149" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 21.3387, 1.4871, 0.0630426)
+
+[node name="graspiet150" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.13092, 0, 0.456602, 0, 0.475, 0, -0.456602, 0, 0.13092, 23.0529, 1.4871, -1.411)
+
+[node name="graspiet151" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -16.2282, 1.4871, -26.51)
+
+[node name="graspiet152" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -16.1521, 1.4871, -29.8027)
+
+[node name="graspiet153" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -13.2322, 1.4871, -31.1572)
+
+[node name="graspiet154" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -10.4938, 1.4871, -31.094)
+
+[node name="graspiet155" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -1.70044, 1.4871, -30.8909)
+
+[node name="graspiet156" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -1.76119, 1.4871, -28.2604)
+
+[node name="graspiet157" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 1.81637, 1.4871, -28.1778)
+
+[node name="graspiet158" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 5.52398, 1.4871, -27.4419)
+
+[node name="graspiet159" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 3.66372, 1.4871, -28.7268)
+
+[node name="graspiet160" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -8.17593, 1.4871, -35.1512)
+
+[node name="graspiet161" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -5.04228, 1.4871, -35.0788)
+
+[node name="graspiet162" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -5.10774, 1.4871, -32.2444)
+
+[node name="graspiet163" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -7.22016, 1.4871, -32.2932)
+
+[node name="graspiet164" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -9.95171, 1.4871, -32.3563)
+
+[node name="graspiet165" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -12.7299, 1.4871, -31.5481)
+
+[node name="graspiet166" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -16.1415, 1.4871, -30.2641)
+
+[node name="graspiet167" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -16.0654, 1.4871, -33.5568)
+
+[node name="graspiet168" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -13.1455, 1.4871, -34.9113)
+
+[node name="graspiet169" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -10.4071, 1.4871, -34.848)
+
+[node name="graspiet170" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -1.61374, 1.4871, -34.645)
+
+[node name="graspiet171" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, -1.67449, 1.4871, -32.0145)
+
+[node name="graspiet172" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 1.90306, 1.4871, -31.9318)
+
+[node name="graspiet173" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 5.61068, 1.4871, -31.196)
+
+[node name="graspiet174" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.474873, 0, 0.0109671, 0, 0.475, 0, -0.0109671, 0, -0.474873, 3.75042, 1.4871, -32.4808)
+
+[node name="graspiet175" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -16.2209, 1.4871, -13.7453)
+
+[node name="graspiet176" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -16.1975, 1.4871, -16.8797)
+
+[node name="graspiet177" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.3625, 1.4871, -16.8585)
+
+[node name="graspiet178" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.3782, 1.4871, -14.7456)
+
+[node name="graspiet179" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.3986, 1.4871, -12.0134)
+
+[node name="graspiet180" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -12.5471, 1.4871, -9.2482)
+
+[node name="graspiet181" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -11.2098, 1.4871, -5.85714)
+
+[node name="graspiet182" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -14.5034, 1.4871, -5.88169)
+
+[node name="graspiet183" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -15.9033, 1.4871, -8.78003)
+
+[node name="graspiet184" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -15.8829, 1.4871, -11.5191)
+
+[node name="graspiet185" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -15.8173, 1.4871, -20.3146)
+
+[node name="graspiet186" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.1862, 1.4871, -20.295)
+
+[node name="graspiet187" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.1596, 1.4871, -23.8734)
+
+[node name="graspiet188" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -12.4818, 1.4871, -27.592)
+
+[node name="graspiet189" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -13.7374, 1.4871, -25.7119)
+
+[node name="graspiet190" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -19.9759, 1.4871, -13.7733)
+
+[node name="graspiet191" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -19.9525, 1.4871, -16.9077)
+
+[node name="graspiet192" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.1175, 1.4871, -16.8865)
+
+[node name="graspiet193" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.1332, 1.4871, -14.7736)
+
+[node name="graspiet199" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -19.6379, 1.4871, -11.5471)
+
+[node name="graspiet211" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -11.6982, 1.4871, 15.2904)
+
+[node name="graspiet212" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -14.9918, 1.4871, 15.2658)
+
+[node name="graspiet221" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -20.4409, 1.4871, 4.23984)
+
+[node name="graspiet222" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.6059, 1.4871, 4.26097)
+
+[node name="graspiet223" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.6216, 1.4871, 6.37389)
+
+[node name="graspiet228" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -20.1467, 1.4871, 12.3395)
+
+[node name="graspiet229" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -20.1263, 1.4871, 9.60036)
+
+[node name="graspiet230" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -20.0607, 1.4871, 0.804933)
+
+[node name="graspiet231" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.4296, 1.4871, 0.824544)
+
+[node name="graspiet232" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.4029, 1.4871, -2.75387)
+
+[node name="graspiet233" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -16.7252, 1.4871, -6.47253)
+
+[node name="graspiet234" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.00353996, 0, -0.474987, 0, 0.475, 0, 0.474987, 0, -0.00353996, -17.9808, 1.4871, -4.59241)
+
+[node name="graspiet241" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -17.1985, 1.4871, 6.88623)
+
+[node name="graspiet242" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -20.4863, 1.4871, 7.08219)
+
+[node name="graspiet243" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -22.0772, 1.4871, 4.28406)
+
+[node name="graspiet244" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -22.2401, 1.4871, 1.54971)
+
+[node name="graspiet245" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -22.7635, 1.4871, -7.23038)
+
+[node name="graspiet246" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -20.1369, 1.4871, -7.38693)
+
+[node name="graspiet247" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -20.3498, 1.4871, -10.9591)
+
+[node name="graspiet248" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -19.9225, 1.4871, -14.7148)
+
+[node name="graspiet249" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -21.0494, 1.4871, -12.7548)
+
+[node name="graspiet250" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -26.4748, 1.4871, -0.425374)
+
+[node name="graspiet251" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -26.6613, 1.4871, -3.55431)
+
+[node name="graspiet252" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -23.8312, 1.4871, -3.72299)
+
+[node name="graspiet253" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -23.7055, 1.4871, -1.61375)
+
+[node name="graspiet254" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -23.5429, 1.4871, 1.11368)
+
+[node name="graspiet255" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -22.5082, 1.4871, 3.8157)
+
+[node name="graspiet256" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -20.9469, 1.4871, 7.10965)
+
+[node name="graspiet257" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -24.2348, 1.4871, 7.30561)
+
+[node name="graspiet258" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -25.8256, 1.4871, 4.50748)
+
+[node name="graspiet259" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -25.9885, 1.4871, 1.77313)
+
+[node name="graspiet260" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -26.5119, 1.4871, -7.00696)
+
+[node name="graspiet261" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -23.8853, 1.4871, -7.16351)
+
+[node name="graspiet262" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -24.0982, 1.4871, -10.7357)
+
+[node name="graspiet263" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -23.6709, 1.4871, -14.4914)
+
+[node name="graspiet264" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(0.0282615, 0, -0.474159, 0, 0.475, 0, 0.474159, 0, 0.0282615, -24.7979, 1.4871, -12.5314)
+
+[node name="graspiet265" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -32.4053, 1.4871, -1.0314)
+
+[node name="graspiet266" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -31.472, 1.4871, -4.02373)
+
+[node name="graspiet267" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -28.7655, 1.4871, -3.1796)
+
+[node name="graspiet268" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -29.3946, 1.4871, -1.16245)
+
+[node name="graspiet269" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -30.2081, 1.4871, 1.44591)
+
+[node name="graspiet270" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -30.197, 1.4871, 4.33925)
+
+[node name="graspiet271" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -29.9029, 1.4871, 7.97258)
+
+[node name="graspiet272" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.0472, 1.4871, 6.99193)
+
+[node name="graspiet273" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.5444, 1.4871, 3.81183)
+
+[node name="graspiet274" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -32.7288, 1.4871, 1.19687)
+
+[node name="graspiet275" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -30.11, 1.4871, -7.19989)
+
+[node name="graspiet276" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -27.5981, 1.4871, -6.41648)
+
+[node name="graspiet277" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -26.5327, 1.4871, -9.83269)
+
+[node name="graspiet278" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -24.8034, 1.4871, -13.1939)
+
+[node name="graspiet279" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -26.5512, 1.4871, -11.7598)
+
+[node name="graspiet280" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -35.99, 1.4871, -2.14944)
+
+[node name="graspiet281" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -35.0568, 1.4871, -5.14177)
+
+[node name="graspiet282" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -32.3502, 1.4871, -4.29764)
+
+[node name="graspiet283" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -32.9794, 1.4871, -2.28049)
+
+[node name="graspiet284" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.7929, 1.4871, 0.327872)
+
+[node name="graspiet285" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.7817, 1.4871, 3.22121)
+
+[node name="graspiet286" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.4877, 1.4871, 6.85454)
+
+[node name="graspiet287" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -36.6319, 1.4871, 5.87389)
+
+[node name="graspiet288" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -37.1292, 1.4871, 2.69379)
+
+[node name="graspiet289" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -36.3136, 1.4871, 0.078825)
+
+[node name="graspiet290" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -33.6947, 1.4871, -8.31794)
+
+[node name="graspiet291" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -31.1829, 1.4871, -7.53452)
+
+[node name="graspiet292" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -30.1174, 1.4871, -10.9507)
+
+[node name="graspiet293" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -28.3882, 1.4871, -14.3119)
+
+[node name="graspiet294" parent="." instance=ExtResource("18_cg3tm")]
+transform = Transform3D(-0.141427, 0, -0.453457, 0, 0.475, 0, 0.453457, 0, -0.141427, -30.136, 1.4871, -12.8779)
 
 [connection signal="body_entered" from="ball" to="ball" method="_on_body_entered"]

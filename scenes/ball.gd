@@ -1,10 +1,17 @@
 extends RigidBody3D
 var old_last
-var last
+var last 
+var served
+
+func _input(event):
+	if Input.is_mouse_button_pressed(1):
+		served = true
+	
 func _on_body_entered(body):
-	old_last = last
-	last = body.name
-	if body.is_in_group("table"):
+	
+	if body.is_in_group("table") && served:
+		old_last = last
+		last = body.name
 		if last == old_last:
 			score(body.name+"label")
 			reset()
@@ -22,3 +29,4 @@ func reset():
 	linear_velocity = Vector3(0,0,0)
 	old_last =""
 	last = ""
+	served = false

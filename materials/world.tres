@@ -11,5 +11,16 @@ radiance_size = 2
 
 [resource]
 background_mode = 2
+background_energy_multiplier = 1.5
 sky = SubResource("Sky_qpwmr")
 sky_custom_fov = 180.0
+glow_intensity = 1.98
+glow_strength = 0.91
+glow_hdr_threshold = 1.45
+glow_hdr_scale = 1.95
+fog_light_color = Color(0.960784, 0.894118, 0, 1)
+fog_light_energy = 0.55
+fog_density = 0.0
+fog_height = 8.15
+volumetric_fog_density = 0.7022
+volumetric_fog_albedo = Color(1, 1, 0, 1)

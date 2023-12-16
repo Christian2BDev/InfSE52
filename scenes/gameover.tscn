@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4xjkuokho0oc"]
+[gd_scene load_steps=7 format=3 uid="uid://c4xjkuokho0oc"]
 
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="1_fug16"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="2_30pin"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="3_i7clw"]
+[ext_resource type="Script" path="res://scenes/replay.gd" id="4_fxeqr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qxrpg"]
 font_size = 20
@@ -106,6 +107,7 @@ offset_right = 450.0
 offset_bottom = -205.0
 grow_vertical = 0
 texture_normal = ExtResource("1_fug16")
+script = ExtResource("4_fxeqr")
 
 [node name="Label" type="Label" parent="CanvasLayer/replay"]
 layout_mode = 0
