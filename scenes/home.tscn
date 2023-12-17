@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://0m0jxbv105ar"]
+[gd_scene load_steps=9 format=3 uid="uid://0m0jxbv105ar"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_rs4rl"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_04222"]
 [ext_resource type="Script" path="res://scripts/Play.gd" id="3_u2dow"]
 [ext_resource type="Script" path="res://scripts/Settings.gd" id="4_2ts77"]
+[ext_resource type="Script" path="res://scenes/tutorial.gd" id="5_a3h2p"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="5_sorbj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ep76g"]
@@ -126,16 +127,51 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Settings"
 
+[node name="tutorial" type="TextureButton" parent="Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 44.5
+offset_right = 98.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture_normal = ExtResource("2_04222")
+script = ExtResource("5_a3h2p")
+
+[node name="Label" type="Label" parent="Settings/tutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "Tutorial
+"
+
 [node name="Quit" type="TextureButton" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 131.0
-offset_right = 100.0
-offset_bottom = 206.0
+offset_left = -102.0
+offset_top = 211.0
+offset_right = 98.0
+offset_bottom = 286.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
