@@ -3,12 +3,9 @@ var old_last
 var last 
 var served
 
-func _input(event):
-	if Input.is_mouse_button_pressed(1):
-		served = true
-	
 func _on_body_entered(body):
-	
+	if(body.is_in_group("bat")):
+		served = true
 	if body.is_in_group("table") && served:
 		old_last = last
 		last = body.name
@@ -16,10 +13,17 @@ func _on_body_entered(body):
 			score(body.name+"label")
 			reset()
 	if body.is_in_group("bound"):
+		if last == null:
+			print("vaulty serve")
+		else:
+			if last == "p1":
+				score("p2label")
+			else:
+				score("p1label")
 		reset()
 func score(who):
 	get_node("../UI/UIControl/64/" + who).text = str(int(get_node("../UI/UIControl/64/" + who).text) + 1)
-	
+	get_node("../cheer" + str(RandomNumberGenerator.new().randi_range(1,3))).play() 
 	var punt= int(get_node("../UI/UIControl/64/" + who).text)
 	if punt >=11:
 		get_tree().change_scene_to_file("res://scenes/gameover.tscn");

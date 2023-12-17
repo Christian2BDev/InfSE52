@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=43 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -16,8 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://objects/publiekpong.gltf" id="9_ra0ty"]
 [ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
 [ext_resource type="Script" path="res://scripts/knop_game.gd" id="11_6wc5n"]
+[ext_resource type="AudioStream" uid="uid://b76bdway8xkn4" path="res://sounds/cheer.mp3" id="16_4xu0g"]
+[ext_resource type="AudioStream" uid="uid://jc4dmw73p3hl" path="res://sounds/cheer2.mp3" id="17_xn7ub"]
 [ext_resource type="PackedScene" uid="uid://b0fg30ab7c6p3" path="res://treepong.gltf" id="18_7snip"]
 [ext_resource type="PackedScene" uid="uid://ce4t6fipwb0co" path="res://img/graspiet.gltf" id="18_cg3tm"]
+[ext_resource type="AudioStream" uid="uid://d4hdpg4cvrxw" path="res://sounds/cheer3.mp3" id="18_egrjm"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
 margin = 0.0
@@ -65,7 +68,6 @@ emission_energy_multiplier = 72.86
 [sub_resource type="SphereMesh" id="SphereMesh_0m3n3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cigf5"]
-load_path = "res://.godot/imported/leafy_grass_mask_1k.png-ae462041f3d5fea424027a2de42321a0.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xsg6n"]
 albedo_color = Color(0.45098, 0.286275, 0, 1)
@@ -102,8 +104,8 @@ environment = ExtResource("1_yktut")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.91496, 0.403545, 0, -0.403545, 0.91496, 0, 21.124, 26.783)
 
-[node name="batje" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, 20)
+[node name="batje" type="CharacterBody3D" parent="." groups=["bat"]]
+transform = Transform3D(-0.573576, 0.819152, 0, -0.819152, -0.573576, 0, 0, 0, 1, 0, 12.57, 20)
 script = ExtResource("2_801ql")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="batje"]
@@ -181,7 +183,7 @@ light_angular_distance = 4.62
 shadow_enabled = true
 
 [node name="ball" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.2867, 15.7024)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.4735, 15.7024)
 mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_fsgc2")
 gravity_scale = 5.0
@@ -414,6 +416,18 @@ transform = Transform3D(-0.70363, -0.0159473, -0.710387, 1.96203e-09, 0.999748, 
 
 [node name="publiekpong4" parent="." instance=ExtResource("9_ra0ty")]
 transform = Transform3D(-0.917213, 0, -0.398397, 0, 1, 0, 0.398397, 0, -0.917213, 32.1279, 3.8547, -15.3023)
+
+[node name="cheer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_4xu0g")
+bus = &"Muziek"
+
+[node name="cheer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_xn7ub")
+bus = &"Muziek"
+
+[node name="cheer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_egrjm")
+bus = &"Muziek"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_qpeqp")

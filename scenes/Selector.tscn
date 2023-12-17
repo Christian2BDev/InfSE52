@@ -19,7 +19,6 @@ font_size = 26
 font_size = 26
 
 [sub_resource type="LabelSettings" id="LabelSettings_1o5lr"]
-font_size = 26
 
 [node name="Node" type="Node"]
 
@@ -161,8 +160,10 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
-text = "AR"
+text = "Not comming soon!
+AR"
 label_settings = SubResource("LabelSettings_1o5lr")
+horizontal_alignment = 1
 
 [node name="back" type="TextureButton" parent="."]
 offset_right = 200.0
