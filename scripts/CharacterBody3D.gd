@@ -1,6 +1,6 @@
 extends CharacterBody3D
-
-
+ 
+var touching
 func _input(event):
 	
 	if event is InputEventMouseMotion:
@@ -12,12 +12,21 @@ func _input(event):
 			position = Vector3(position3D.x,position3D.y,position.z)
 		else:
 			position = Vector3(position3D.x,position.y,position.z)
-
-
+	if event is InputEventScreenTouch:
+		var touch_index = event.index
+		if event.index >=1:
+			touching = true
+		else:
+			touching = false
 func _process( some_change ):
-	look_at(Vector3(0,15,-10))
-	if Input.is_mouse_button_pressed( 1 ):
+	if touching:
 		position = position.move_toward(Vector3(position.x, position.y,0),25 * get_process_delta_time())
 	else:
-		if position.z != 20:
-			position = position.move_toward(Vector3(position.x, position.y,20),1)
+		position = position.move_toward(Vector3(position.x, position.y,20),1)
+	look_at(Vector3(0,15,-10))
+	#if true:
+		#position = position.move_toward(Vector3(position.x, position.y,0),25 * get_process_delta_time())
+	#else:
+		#if position.z != 20:
+			#position = position.move_toward(Vector3(position.x, position.y,20),1)
+
