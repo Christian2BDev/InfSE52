@@ -1,9 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxq3yqjyjxfxi"]
+[gd_scene load_steps=12 format=3 uid="uid://cxq3yqjyjxfxi"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_ykv4x"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="2_ab2pf"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="3_gsx8h"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="4_64uv1"]
+
+[sub_resource type="Gradient" id="Gradient_nx3t5"]
+colors = PackedColorArray(1, 1, 0.372549, 0.745098, 0.392157, 1, 0.14902, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2qcgr"]
+seed = 25
+frequency = 0.0001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_18jho"]
+color_ramp = SubResource("Gradient_nx3t5")
+noise = SubResource("FastNoiseLite_2qcgr")
+
+[sub_resource type="LabelSettings" id="LabelSettings_p58at"]
+font_size = 151
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_0d6wo"]
 font_size = 40
@@ -13,12 +28,8 @@ font_color = Color(0, 0, 0, 1)
 font_size = 40
 font_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_75k2o"]
-font_size = 40
-font_color = Color(0, 0, 0, 1)
-
 [sub_resource type="LabelSettings" id="LabelSettings_cwyse"]
-font_size = 20
+font_size = 28
 
 [node name="game_settings" type="Node2D"]
 
@@ -38,68 +49,96 @@ texture = ExtResource("1_ykv4x")
 expand_mode = 1
 flip_h = true
 
-[node name="master volume" type="Label" parent="."]
-offset_left = 272.0
-offset_top = 287.0
-offset_right = 440.0
-offset_bottom = 370.0
-text = "master volume
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 527.0
+offset_top = 69.0
+offset_right = 1401.0
+offset_bottom = 920.0
+size_flags_horizontal = 4
+texture = SubResource("NoiseTexture2D_18jho")
+
+[node name="Label" type="Label" parent="TextureRect2"]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 880.0
+offset_bottom = 210.0
+text = "Settings"
+label_settings = SubResource("LabelSettings_p58at")
+horizontal_alignment = 1
+
+[node name="master volume" type="Label" parent="TextureRect2"]
+offset_left = 10.0
+offset_top = 239.0
+offset_right = 298.0
+offset_bottom = 322.0
+text = "Master volume
 "
 label_settings = SubResource("LabelSettings_0d6wo")
 
-[node name="music volume" type="Label" parent="."]
-offset_left = 264.0
-offset_top = 412.0
-offset_right = 529.0
-offset_bottom = 470.0
-pivot_offset = Vector2(117, 30)
-text = "music volume"
-label_settings = SubResource("LabelSettings_5xpxc")
-
-[node name="background volume" type="Label" parent="."]
-offset_left = 290.0
-offset_top = 537.0
-offset_right = 421.0
-offset_bottom = 560.0
-text = "background volume
-"
-label_settings = SubResource("LabelSettings_75k2o")
-
-[node name="master volume slider" type="HSlider" parent="."]
-offset_left = 597.0
-offset_top = 257.0
-offset_right = 1096.0
-offset_bottom = 401.0
+[node name="master volume slider" type="HSlider" parent="TextureRect2/master volume"]
+offset_left = 350.0
+offset_right = 849.0
+offset_bottom = 60.0
 max_value = 1.0
 step = 0.001
 value = 1.0
 script = ExtResource("2_ab2pf")
 bus_name = "Master"
 
-[node name="music volume slider" type="HSlider" parent="."]
-offset_left = 573.0
-offset_top = 373.0
-offset_right = 1072.0
-offset_bottom = 517.0
+[node name="music volume" type="Label" parent="TextureRect2"]
+offset_left = 10.0
+offset_top = 339.0
+offset_right = 275.0
+offset_bottom = 397.0
+pivot_offset = Vector2(117, 30)
+text = "Music volume"
+label_settings = SubResource("LabelSettings_5xpxc")
+
+[node name="music volume slider" type="HSlider" parent="TextureRect2/music volume"]
+offset_left = 350.0
+offset_right = 849.0
+offset_bottom = 64.0
 max_value = 1.0
 step = 0.001
 value = 1.0
 script = ExtResource("2_ab2pf")
 bus_name = "Muziek"
 
-[node name="back to menu knop" type="TextureButton" parent="."]
-offset_left = 355.0
-offset_top = 680.0
-offset_right = 520.0
-offset_bottom = 720.0
+[node name="effects volume" type="Label" parent="TextureRect2"]
+offset_left = 10.0
+offset_top = 439.0
+offset_right = 291.0
+offset_bottom = 497.0
+pivot_offset = Vector2(117, 30)
+text = "Effects volume"
+label_settings = SubResource("LabelSettings_5xpxc")
+
+[node name="effects volume slider" type="HSlider" parent="TextureRect2/effects volume"]
+offset_left = 350.0
+offset_right = 849.0
+offset_bottom = 64.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("2_ab2pf")
+bus_name = "Fx"
+
+[node name="back to menu knop" type="TextureButton" parent="TextureRect2"]
+offset_left = 229.71
+offset_top = 662.875
+offset_right = 429.71
+offset_bottom = 737.875
+scale = Vector2(2, 2)
 texture_normal = ExtResource("3_gsx8h")
 script = ExtResource("4_64uv1")
 
-[node name="Label" type="Label" parent="back to menu knop"]
+[node name="Label" type="Label" parent="TextureRect2/back to menu knop"]
 layout_mode = 0
-offset_left = 19.0
-offset_top = 16.0
-offset_right = 214.0
-offset_bottom = 51.0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 199.0
+offset_bottom = 73.0
 text = "back to menu"
 label_settings = SubResource("LabelSettings_cwyse")
+horizontal_alignment = 1
+vertical_alignment = 1
