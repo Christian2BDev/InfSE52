@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyqhs6sqso6qx"
 path.s3tc="res://.godot/imported/Scherm­afbeelding 2023-12-06 om 11.23.57.png-422b1dc555eb1f0282a910f055a43487.s3tc.ctex"
+path.etc2="res://.godot/imported/Scherm­afbeelding 2023-12-06 om 11.23.57.png-422b1dc555eb1f0282a910f055a43487.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://img/Scherm­afbeelding 2023-12-06 om 11.23.57.png"
-dest_files=["res://.godot/imported/Scherm­afbeelding 2023-12-06 om 11.23.57.png-422b1dc555eb1f0282a910f055a43487.s3tc.ctex"]
+dest_files=["res://.godot/imported/Scherm­afbeelding 2023-12-06 om 11.23.57.png-422b1dc555eb1f0282a910f055a43487.s3tc.ctex", "res://.godot/imported/Scherm­afbeelding 2023-12-06 om 11.23.57.png-422b1dc555eb1f0282a910f055a43487.etc2.ctex"]
 
 [params]
 
