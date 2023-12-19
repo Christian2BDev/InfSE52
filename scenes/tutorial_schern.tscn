@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://csft7a1plw6qs"]
+[gd_scene load_steps=7 format=3 uid="uid://csft7a1plw6qs"]
 
 [ext_resource type="Texture2D" uid="uid://cyqhs6sqso6qx" path="res://img/Scherm­afbeelding 2023-12-06 om 11.23.57.png" id="1_ul1c3"]
 [ext_resource type="Texture2D" uid="uid://cxmo322a6qo5l" path="res://img/Schermafbeelding 2023-12-17 104108.png" id="2_ubumc"]
@@ -6,13 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="4_2nlf7"]
 [ext_resource type="Script" path="res://scripts/Play.gd" id="5_j3mda"]
 [ext_resource type="Script" path="res://scripts/back.gd" id="6_kud7q"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_3yigl"]
-font_size = 121
-
-[sub_resource type="LabelSettings" id="LabelSettings_e2qls"]
-font_size = 46
-font_color = Color(0, 0, 0, 1)
 
 [node name="tutorial schern" type="Node2D"]
 
@@ -31,42 +24,24 @@ expand_mode = 1
 
 [node name="how to play" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = 2.0
-offset_right = 1922.0
-offset_bottom = 169.0
+offset_left = 478.0
+offset_top = -24.0
+offset_right = 568.0
+offset_bottom = 2.0
+scale = Vector2(10, 10)
 text = "how to play
 "
-label_settings = SubResource("LabelSettings_3yigl")
-horizontal_alignment = 1
 
-[node name="1" type="Label" parent="."]
+[node name="Label2" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = 10.0
+offset_left = 18.0
 offset_top = 194.0
-offset_right = 1212.0
-offset_bottom = 334.0
+offset_right = 421.0
+offset_bottom = 246.0
+scale = Vector2(2.8, 2.8)
 text = "1: move the racket using you finger.
  you can move the racket horizontally and vertically.
 "
-label_settings = SubResource("LabelSettings_e2qls")
-
-[node name="2" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = 10.0
-offset_top = 350.0
-offset_right = 1372.0
-offset_bottom = 490.0
-text = "2: touch the screen with 2 fingers to move the racket forward"
-label_settings = SubResource("LabelSettings_e2qls")
-
-[node name="3" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-offset_left = 10.0
-offset_top = 450.0
-offset_right = 1372.0
-offset_bottom = 590.001
-text = "3: first to 11 points wins!"
-label_settings = SubResource("LabelSettings_e2qls")
 
 [node name="batje foto" type="TextureRect" parent="."]
 offset_left = 1394.0
@@ -134,19 +109,37 @@ grow_vertical = 2
 texture = ExtResource("3_ahn4t")
 expand_mode = 1
 
+[node name="Label3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 14.0
+offset_top = 350.0
+offset_right = 417.0
+offset_bottom = 402.0
+scale = Vector2(2.8, 2.8)
+text = "2:"
+
+[node name="Label4" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 12.0
+offset_top = 428.0
+offset_right = 415.0
+offset_bottom = 480.0
+scale = Vector2(2.8, 2.8)
+text = "3: first to 11 point wins. goodluck!
+"
+
 [node name="Play" type="TextureButton" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1500.0
-offset_top = 850.0
-offset_right = 1700.0
-offset_bottom = 925.0
+offset_left = 806.0
+offset_top = 831.0
+offset_right = 1006.0
+offset_bottom = 906.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.75, 1.75)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("4_2nlf7")
@@ -159,22 +152,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -101.0
-offset_top = -29.5
-offset_right = 94.0
-offset_bottom = 23.5
+offset_left = -67.0
+offset_top = -26.5
+offset_right = 151.0
+offset_bottom = 26.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Play"
-horizontal_alignment = 1
 
 [node name="back" type="TextureButton" parent="."]
-offset_left = 75.0
-offset_top = 850.0
-offset_right = 275.0
-offset_bottom = 925.0
-scale = Vector2(1.75, 1.75)
+offset_left = 470.0
+offset_top = 830.0
+offset_right = 670.0
+offset_bottom = 905.0
 size_flags_horizontal = 6
 size_flags_vertical = 4
 texture_normal = ExtResource("4_2nlf7")
