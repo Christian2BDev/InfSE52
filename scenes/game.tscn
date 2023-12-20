@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="7_uo27d"]
 [ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="8_smfk8"]
-[ext_resource type="Script" path="res://scripts/Quit.gd" id="9_r2wfb"]
+[ext_resource type="Script" path="res://scenes/b2g_btn.gd" id="9_ot7pu"]
 [ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://objects/publiekpong.gltf" id="9_ra0ty"]
 [ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
 [ext_resource type="Script" path="res://scripts/knop_game.gd" id="11_6wc5n"]
@@ -79,11 +79,9 @@ size = Vector3(300, 1, 300)
 
 [sub_resource type="LabelSettings" id="LabelSettings_gcoo1"]
 font_size = 40
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_274rr"]
 font_size = 40
-font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_3mo21"]
 font_size = 20
@@ -213,7 +211,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374901, 0)
 shape = SubResource("BoxShape3D_xmlb6")
 
 [node name="Popup" type="Popup" parent="."]
-position = Vector2i(225, 200)
+position = Vector2i(225, 192)
 size = Vector2i(1500, 752)
 visible = true
 unresizable = false
@@ -228,76 +226,105 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.121569, 0.121569, 0.121569, 1)
 
-[node name="master volume slider" type="HSlider" parent="Popup"]
-offset_left = 502.0
-offset_top = 115.0
-offset_right = 1001.0
-offset_bottom = 259.0
+[node name="master volume" type="Label" parent="Popup"]
+offset_left = 15.0
+offset_top = 165.51
+offset_right = 303.0
+offset_bottom = 248.51
+text = "master volume
+"
+label_settings = SubResource("LabelSettings_gcoo1")
+
+[node name="master volume slider" type="HSlider" parent="Popup/master volume"]
+offset_left = 435.0
+offset_top = -40.51
+offset_right = 934.0
+offset_bottom = 103.49
 max_value = 1.0
 step = 0.001
 value = 1.0
 script = ExtResource("6_uv5l3")
 bus_name = "Master"
 
-[node name="music volume slider" type="HSlider" parent="Popup"]
-offset_left = 502.0
-offset_top = 239.0
-offset_right = 1001.0
-offset_bottom = 383.0
+[node name="music volume" type="Label" parent="Popup"]
+offset_left = 15.0
+offset_top = 279.0
+offset_right = 280.0
+offset_bottom = 337.0
+pivot_offset = Vector2(117, 30)
+text = "music volume"
+label_settings = SubResource("LabelSettings_274rr")
+
+[node name="music volume slider" type="HSlider" parent="Popup/music volume"]
+offset_left = 435.0
+offset_top = -40.0
+offset_right = 934.0
+offset_bottom = 104.0
 max_value = 1.0
 step = 0.001
 value = 1.0
 script = ExtResource("6_uv5l3")
 bus_name = "Muziek"
 
-[node name="music volume slider2" type="HSlider" parent="Popup"]
-offset_left = 502.0
-offset_top = 400.0
-offset_right = 1001.0
-offset_bottom = 544.0
+[node name="background" type="Label" parent="Popup"]
+offset_left = 15.0
+offset_top = 390.05
+offset_right = 397.0
+offset_bottom = 448.05
+pivot_offset = Vector2(117, 30)
+text = "Background volume
+"
+label_settings = SubResource("LabelSettings_274rr")
+
+[node name="background volume slider2" type="HSlider" parent="Popup/background"]
+offset_left = 435.0
+offset_top = -34.84
+offset_right = 934.0
+offset_bottom = 109.16
 max_value = 1.0
 step = 0.001
 value = 1.0
 script = ExtResource("6_uv5l3")
 bus_name = "Fx"
 
-[node name="master volume" type="Label" parent="Popup"]
-offset_left = 155.0
-offset_top = 159.0
-offset_right = 443.0
-offset_bottom = 242.0
-text = "master volume
-"
-label_settings = SubResource("LabelSettings_gcoo1")
-
-[node name="music volume" type="Label" parent="Popup"]
-offset_left = 147.0
-offset_top = 279.0
-offset_right = 412.0
-offset_bottom = 337.0
-pivot_offset = Vector2(117, 30)
-text = "music volume"
-label_settings = SubResource("LabelSettings_274rr")
-
-[node name="music volume2" type="Label" parent="Popup"]
-offset_left = 100.0
-offset_top = 435.0
-offset_right = 482.0
-offset_bottom = 493.0
-pivot_offset = Vector2(117, 30)
-text = "Background volume
-"
-label_settings = SubResource("LabelSettings_274rr")
-
-[node name="back to menu knop" type="TextureButton" parent="Popup"]
-offset_left = 400.0
+[node name="b2g_btn" type="TextureButton" parent="Popup"]
+offset_left = 375.0
 offset_top = 610.0
-offset_right = 600.0
+offset_right = 575.0
 offset_bottom = 685.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("7_uo27d")
+script = ExtResource("9_ot7pu")
+
+[node name="Label" type="Label" parent="Popup/b2g_btn"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -93.5
+offset_top = -17.5
+offset_right = 93.5
+offset_bottom = 44.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "back to game
+
+"
+label_settings = SubResource("LabelSettings_3mo21")
+horizontal_alignment = 1
+
+[node name="b2m_btn" type="TextureButton" parent="Popup"]
+offset_left = 775.0
+offset_top = 610.0
+offset_right = 975.0
+offset_bottom = 685.0
+scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("7_uo27d")
 script = ExtResource("8_smfk8")
 
-[node name="Label" type="Label" parent="Popup/back to menu knop"]
+[node name="Label" type="Label" parent="Popup/b2m_btn"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -314,40 +341,7 @@ text = "back to main menu
 
 "
 label_settings = SubResource("LabelSettings_3mo21")
-
-[node name="Quit" type="TextureButton" parent="Popup"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 50.0
-offset_top = 235.0
-offset_right = 250.0
-offset_bottom = 310.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture_normal = ExtResource("7_uo27d")
-script = ExtResource("9_r2wfb")
-
-[node name="Label" type="Label" parent="Popup/Quit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "Quit game
-"
+horizontal_alignment = 1
 
 [node name="UI" type="CanvasLayer" parent="."]
 

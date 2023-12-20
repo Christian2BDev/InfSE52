@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dykxvmxi3pd7n"]
+[gd_scene load_steps=8 format=3 uid="uid://dykxvmxi3pd7n"]
 
 [ext_resource type="Texture2D" uid="uid://7n3i6las88n1" path="res://img/achtergrond_ui-transformed.png" id="1_x6gsi"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="2_vhbwn"]
@@ -18,8 +18,6 @@ font_size = 26
 [sub_resource type="LabelSettings" id="LabelSettings_b5vop"]
 font_size = 26
 
-[sub_resource type="LabelSettings" id="LabelSettings_1o5lr"]
-
 [node name="Node" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -36,9 +34,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -225.5
+offset_left = -944.0
 offset_top = -418.0
-offset_right = 225.5
+offset_right = 956.0
 offset_bottom = -278.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -66,9 +64,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -359.0
+offset_left = -324.0
 offset_top = -40.0
-offset_right = -154.58
+offset_right = -119.58
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -101,9 +99,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
+offset_left = 112.0
 offset_top = -40.0
-offset_right = 104.42
+offset_right = 316.42
 offset_bottom = 35.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -128,42 +126,6 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "Multiplayer"
 label_settings = SubResource("LabelSettings_b5vop")
-
-[node name="3" type="TextureButton" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 160.0
-offset_top = -40.0
-offset_right = 364.42
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2, 1.2)
-size_flags_horizontal = 6
-size_flags_vertical = 4
-texture_normal = ExtResource("2_vhbwn")
-
-[node name="Label" type="Label" parent="3"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-text = "Not comming soon!
-AR"
-label_settings = SubResource("LabelSettings_1o5lr")
-horizontal_alignment = 1
 
 [node name="back" type="TextureButton" parent="."]
 offset_right = 200.0
