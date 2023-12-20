@@ -213,7 +213,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.374901, 0)
 shape = SubResource("BoxShape3D_xmlb6")
 
 [node name="Popup" type="Popup" parent="."]
-position = Vector2i(0, 36)
+position = Vector2i(225, 200)
 size = Vector2i(1500, 752)
 visible = true
 unresizable = false
