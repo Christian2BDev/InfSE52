@@ -245,6 +245,7 @@ text = "master volume
 label_settings = SubResource("LabelSettings_gcoo1")
 
 [node name="master volume slider" type="HSlider" parent="Popup/master volume"]
+layout_mode = 0
 offset_left = 435.0
 offset_top = -40.51
 offset_right = 934.0
@@ -265,6 +266,7 @@ text = "music volume"
 label_settings = SubResource("LabelSettings_274rr")
 
 [node name="music volume slider" type="HSlider" parent="Popup/music volume"]
+layout_mode = 0
 offset_left = 435.0
 offset_top = -40.0
 offset_right = 934.0
@@ -286,6 +288,7 @@ text = "Background volume
 label_settings = SubResource("LabelSettings_274rr")
 
 [node name="background volume slider2" type="HSlider" parent="Popup/background"]
+layout_mode = 0
 offset_left = 435.0
 offset_top = -34.84
 offset_right = 934.0
