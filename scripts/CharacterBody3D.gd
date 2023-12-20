@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+var presing
 
 func _input(event):
 	
@@ -12,12 +12,17 @@ func _input(event):
 			position = Vector3(position3D.x,position3D.y,position.z)
 		else:
 			position = Vector3(position3D.x,position.y,position.z)
-
+	if event is InputEventScreenTouch:
+		presing = event.pressed
+		#if event.index >=1:
+			#presing = true
+		#else:
+			#presing = false
+			
 
 func _process( some_change ):
-	look_at(Vector3(0,25,-10))
-	if Input.is_mouse_button_pressed( 1 ):
+	look_at(Vector3(0,20,-10))
+	if presing:
 		position = position.move_toward(Vector3(position.x, position.y,0),25 * get_process_delta_time())
 	else:
-		if position.z != 20:
-			position = position.move_toward(Vector3(position.x, position.y,20),1)
+		position = position.move_toward(Vector3(position.x, position.y,20),1)
