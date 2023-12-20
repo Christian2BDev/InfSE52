@@ -30,6 +30,7 @@ func score(who):
 
 func reset():
 	position = Vector3(0,17.287,15.702)
+	get_node("../batje2").position = Vector3(0,17,-17)
 	linear_velocity = Vector3(0,0,0)
 	old_last =""
 	last = ""
