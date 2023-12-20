@@ -26,7 +26,7 @@ func score(who):
 	get_node("../cheer" + str(RandomNumberGenerator.new().randi_range(1,3))).play() 
 	var punt= int(get_node("../UI/UIControl/64/" + who).text)
 	if punt >=11:
-		get_tree().change_scene_to_file("res://scenes/gameover.tscn");
+		get_tree().change_scene_to_file("res://scenes/gameover"+who+".tscn");
 
 func reset():
 	position = Vector3(0,17.287,15.702)

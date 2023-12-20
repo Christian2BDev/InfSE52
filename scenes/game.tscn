@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=44 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b0fg30ab7c6p3" path="res://treepong.gltf" id="18_7snip"]
 [ext_resource type="PackedScene" uid="uid://ce4t6fipwb0co" path="res://img/graspiet.gltf" id="18_cg3tm"]
 [ext_resource type="AudioStream" uid="uid://d4hdpg4cvrxw" path="res://sounds/cheer3.mp3" id="18_egrjm"]
+[ext_resource type="AudioStream" uid="uid://c68ftk0ee14tw" path="res://sounds/Football  Sport Crowd Sound Effect (no copyright) FX.mp3" id="22_ipwhg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_huocg"]
 margin = 0.0
@@ -213,7 +214,8 @@ shape = SubResource("BoxShape3D_xmlb6")
 
 [node name="Popup" type="Popup" parent="."]
 position = Vector2i(0, 36)
-size = Vector2i(1500, 750)
+size = Vector2i(1500, 752)
+visible = true
 unresizable = false
 borderless = false
 content_scale_size = Vector2i(100, 100)
@@ -248,6 +250,17 @@ value = 1.0
 script = ExtResource("6_uv5l3")
 bus_name = "Muziek"
 
+[node name="music volume slider2" type="HSlider" parent="Popup"]
+offset_left = 502.0
+offset_top = 400.0
+offset_right = 1001.0
+offset_bottom = 544.0
+max_value = 1.0
+step = 0.001
+value = 1.0
+script = ExtResource("6_uv5l3")
+bus_name = "Fx"
+
 [node name="master volume" type="Label" parent="Popup"]
 offset_left = 155.0
 offset_top = 159.0
@@ -264,6 +277,16 @@ offset_right = 412.0
 offset_bottom = 337.0
 pivot_offset = Vector2(117, 30)
 text = "music volume"
+label_settings = SubResource("LabelSettings_274rr")
+
+[node name="music volume2" type="Label" parent="Popup"]
+offset_left = 100.0
+offset_top = 435.0
+offset_right = 482.0
+offset_bottom = 493.0
+pivot_offset = Vector2(117, 30)
+text = "Background volume
+"
 label_settings = SubResource("LabelSettings_274rr")
 
 [node name="back to menu knop" type="TextureButton" parent="Popup"]
@@ -416,6 +439,11 @@ transform = Transform3D(-0.70363, -0.0159473, -0.710387, 1.96203e-09, 0.999748, 
 
 [node name="publiekpong4" parent="." instance=ExtResource("9_ra0ty")]
 transform = Transform3D(-0.917213, 0, -0.398397, 0, 1, 0, 0.398397, 0, -0.917213, 32.1279, 3.8547, -15.3023)
+
+[node name="achtergrond_geluid" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_ipwhg")
+autoplay = true
+bus = &"Fx"
 
 [node name="cheer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_4xu0g")

@@ -15,7 +15,7 @@ func _input(event):
 
 
 func _process( some_change ):
-	look_at(Vector3(0,15,-10))
+	look_at(Vector3(0,25,-10))
 	if Input.is_mouse_button_pressed( 1 ):
 		position = position.move_toward(Vector3(position.x, position.y,0),25 * get_process_delta_time())
 	else:
