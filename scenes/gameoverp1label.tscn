@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ce5a8d5n5c2d3"]
+[gd_scene load_steps=8 format=3 uid="uid://ce5a8d5n5c2d3"]
 
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="1_h4866"]
+[ext_resource type="Texture2D" uid="uid://diwkvnd62dg5s" path="res://img/airgodot.png" id="1_vu70q"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="2_t4cep"]
 [ext_resource type="Script" path="res://scripts/Quit.gd" id="3_ai80o"]
 [ext_resource type="Script" path="res://scenes/replay.gd" id="4_v6wo0"]
@@ -15,15 +16,14 @@ font_size = 20
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.121569, 0.121569, 0.121569, 1)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = ExtResource("1_vu70q")
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0

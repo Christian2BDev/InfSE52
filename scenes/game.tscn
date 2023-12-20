@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cymvuda67tw53"]
+[gd_scene load_steps=45 format=3 uid="uid://cymvuda67tw53"]
 
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
@@ -50,6 +50,9 @@ height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nreay"]
 size = Vector3(1570.59, 1.015, 2470.07)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lhbot"]
+size = Vector3(20.1924, 2.12087, 0.001)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_syhy3"]
 size = Vector3(19.2519, 3.28165, 20.662)
@@ -132,6 +135,12 @@ collision_layer = 3
 [node name="CollisionShape_veld2" type="CollisionShape3D" parent="bound"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.86129, 0)
 shape = SubResource("BoxShape3D_nreay")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.159002, 11.8544, -0.0348034)
+shape = SubResource("BoxShape3D_lhbot")
 
 [node name="p1" type="StaticBody3D" parent="." groups=["table"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2281, 10.5729)
