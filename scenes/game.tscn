@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://rchm7mh4matq" path="res://objects/pongie.glb" id="1_5j0q0"]
 [ext_resource type="Environment" uid="uid://fesecmihrmyo" path="res://materials/world.tres" id="1_yktut"]
 [ext_resource type="Script" path="res://scripts/CharacterBody3D.gd" id="2_801ql"]
-[ext_resource type="Script" path="res://scenes/batje2.gd" id="3_u1jrc"]
+[ext_resource type="Script" path="res://batje2.gd" id="3_0cx68"]
 [ext_resource type="ArrayMesh" uid="uid://b5xys53malqs0" path="res://objects/terrainpong.obj" id="5_5oa58"]
-[ext_resource type="Script" path="res://scenes/ball.gd" id="5_qr6xh"]
+[ext_resource type="Script" path="res://ball.gd" id="5_6a03h"]
 [ext_resource type="Texture2D" uid="uid://bcl7c8vpeaecn" path="res://img/settings_cogwheel_options_icon_149387.png" id="6_npoak"]
 [ext_resource type="Script" path="res://scripts/mastervolume_script.gd" id="6_uv5l3"]
 [ext_resource type="PackedScene" uid="uid://bs14x1jxgaqmg" path="res://objects/benchpong.glb" id="7_5t68f"]
 [ext_resource type="Texture2D" uid="uid://cvsliwapuywcg" path="res://img/godo_btn.png" id="7_uo27d"]
 [ext_resource type="PackedScene" uid="uid://calspsaayqfrp" path="res://objects/publiekpong.glb" id="8_falb3"]
 [ext_resource type="Script" path="res://scripts/backtomenu_script.gd" id="8_smfk8"]
-[ext_resource type="Script" path="res://scenes/b2g_btn.gd" id="9_ot7pu"]
+[ext_resource type="Script" path="res://scripts/b2g_btn.gd" id="9_q3yp1"]
 [ext_resource type="PackedScene" uid="uid://u8scs58qtwhw" path="res://objects/publiekpong.gltf" id="9_ra0ty"]
 [ext_resource type="AudioStream" uid="uid://d21odg2r8rdmk" path="res://sounds/poro - 29-11-2023 11.24.mp3" id="10_qpeqp"]
 [ext_resource type="Script" path="res://scripts/knop_game.gd" id="11_6wc5n"]
@@ -160,7 +160,7 @@ shape = SubResource("BoxShape3D_syhy3")
 
 [node name="batje2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17, -17.0488)
-script = ExtResource("3_u1jrc")
+script = ExtResource("3_0cx68")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="batje2"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
@@ -199,7 +199,7 @@ max_contacts_reported = 9999
 contact_monitor = true
 can_sleep = false
 lock_rotation = true
-script = ExtResource("5_qr6xh")
+script = ExtResource("5_6a03h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ball"]
 shape = SubResource("SphereShape3D_pcrel")
@@ -306,7 +306,7 @@ offset_right = 575.0
 offset_bottom = 685.0
 scale = Vector2(1.5, 1.5)
 texture_normal = ExtResource("7_uo27d")
-script = ExtResource("9_ot7pu")
+script = ExtResource("9_q3yp1")
 
 [node name="Label" type="Label" parent="Popup/b2g_btn"]
 layout_mode = 1
